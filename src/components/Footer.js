@@ -1,10 +1,109 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import {BsLinkedin,BsYoutube,BsInstagram,BsWhatsapp} from "react-icons/bs"
 const Footer = () => {
   return (
-    <div>
-      Footer
-    </div>
+    <>
+      <footer className="py-4">
+        <div className="container-xxl">
+          <div className="row align-items-center">
+            <div className="col-5">
+              <div className="footer-top-data d-flex gap-30 align-items-center">
+                <img src="images/images/newsletter.png" alt="newsletter" />
+                <h4 className="mb-0 text-white">Sign Up for Newsletter</h4>
+              </div>
+            </div>
+            <div className="col-7">
+              <div class="input-group">
+                <input type="text"
+                  className="form-control py-1"
+                  placeholder="Your Email Address"
+                  aria-label="Search Product Here.."
+                  aria-describedby="basic-addon2"
+                />
+                <span className="input-group-text p-2" id="basic-addon2">
+                  Subscribe
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer className="py-4">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-4">
+              <h4 className="text-white mb-4">Contact Us</h4>
+              <div>
+                <address className="text-white fs-11">No.194/2,
+                  New village Road, Ganemulla <br/> Negombo.<br/>
+                  PinCode:113022
+                </address>
+                <a href="tel:+94 101 9398" className="mt- d-block mb-1 text-white">+94 101 939 7834</a>
+                <a href="mail to:#" className="mt-2 d-block mb-0 text-white">paientlook@edocpharmacy.com</a>
+                <div className="social_icons d-flex align-items-center gap-30 mt-4">
+                  <a className="text-white" href="#"><BsLinkedin className="fs-4"/></a>
+                  <a className="text-white" href="#"><BsYoutube className="fs-4"/></a>
+                  <a className="text-white" href="#"><BsInstagram className="fs-4"/></a>
+                  <a className="text-white" href="#"><BsWhatsapp className="fs-4"/></a>
+                </div>
+              </div>
+            </div>
+            <div className="col-3">
+              <h4 className="text-white mb-4">Information</h4>
+              <div className="footer-link d-flex flex-column">
+                <Link className="text-white py-1 mb-1">Privacy Policy</Link>
+                <Link className="text-white py-1 mb-1">Refund Policy</Link>
+                <Link className="text-white py-1 mb-1">Shipping Policy</Link>
+                <Link className="text-white py-1 mb-1">Terms & Conditions</Link>
+              
+          
+              </div>
+            </div>
+            <div className="col-3">
+              <h4 className="text-white mb-4">Account</h4>
+              <div className="footer-link d-flex flex-column">
+                <Link className="text-white py-1 mb-1">About Us</Link>
+                <Link className="text-white py-1 mb-1">Channel</Link>
+                <Link className="text-white py-1 mb-1">Prescription</Link>
+                <Link className="text-white py-1 mb-1">Blogs</Link>
+                <Link className="text-white py-1 mb-1">Contact</Link>
+          
+              </div>
+            </div>
+            <div className="col-2">
+              <h4 className="text-white mb-4">Quick links</h4>
+              <div className="footer-link d-flex flex-column">
+                <Link className="text-white py-1 mb-1">Mothers & Baby</Link>
+                <Link className="text-white py-1 mb-1">Diet & Nutrition</Link>
+                <Link className="text-white py-1 mb-1">Beauty Supplements</Link>
+                <Link className="text-white py-1 mb-1">Mothers & Baby</Link>
+                <Link className="text-white py-1 mb-1"> Mothers & Baby </Link>
+                <Link className="text-white py-1 mb-1"> Pet Care</Link>
+                <Link className="text-white py-1 mb-1">Diet & Nutrition</Link>
+                <Link className="text-white py-1 mb-1">Beauty Supplements</Link>
+                <Link className="text-white py-1 mb-1">Mothers & Baby</Link>
+                <Link className="text-white py-1 mb-1"> Mothers & Baby </Link>
+                <Link className="text-white py-1 mb-1"> Pet Care</Link>
+          
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer className="py-4">
+        <div className="container.xxl">
+          <div className="row">
+            <div className="col-12">
+              <p className="text-center mb-0 text-white">&copy; {new Date().getFullYear()}; Powerd By Chera</p>
+            </div>
+
+          </div>
+
+        </div>
+      </footer>
+
+    </>
   )
 }
 
