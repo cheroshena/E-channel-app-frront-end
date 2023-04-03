@@ -590,3 +590,13 @@ color: var(--color-1c1c1b);
   color:white;
 }
 /* Auth card end */
+
+/* Policy Pages */
+.policy{
+  background-color: white;
+  padding: 30px;
+  border-radius: 7px;
+
+}
+
+/* Policy Pages end */
