@@ -7,6 +7,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import OurStore from './pages/OurStore';
 import Doctor from './pages/Doctor';
+import Blog from './pages/Blog';
 function App() {
   return <>
   <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
       <Route path='contact' element={<Contact/>}/>
       <Route path='store' element={<OurStore/>}/>
       <Route path='doctor' element={<Doctor/>}/>
+      <Route path='blog' element={<Blog/>}/>
 
     </Route>
   </Routes>

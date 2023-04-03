@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import BreadCrumb from '../components/BreadCrumb';
-import { Helmet } from "react-helmet";
 import Meta from '../components/Meta';
 import ReactStars from "react-rating-stars-component";
 import ProductCard from "../components/ProductCard";
