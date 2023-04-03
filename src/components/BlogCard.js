@@ -12,7 +12,7 @@ const BlogCard = () => {
                 <p className="date">26 of june 2023</p>
                 <h5 className="title">wonderfull morning</h5>
                 <p className="desc">These inconsistencies, combined with the inaccurate description and location of Officer Bueno demonstrates that Officer Bueno did not shoot Mr. Jones.</p>
-                <Link to="/" className="button">Read More</Link>
+                <Link to="/blog/:id" className="button">Read More</Link>
             </div>
         </div>
 
