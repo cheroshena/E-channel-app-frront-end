@@ -107,8 +107,9 @@ const Header = () => {
                 <div className="menu-links">
                   <div className="d-flex align-items-center gap-30">
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/">Our Store</NavLink>
-                    <NavLink to="/">Channeling</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/store">Our Store</NavLink>
+                    <NavLink to="/doctor">Channeling</NavLink>
                     <NavLink to="/">Blogs</NavLink>
                     <NavLink to="/">Prescription</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
