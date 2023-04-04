@@ -2,6 +2,7 @@ import React from 'react';
 import BreadCrumb from '../components/BreadCrumb';
 import Meta from '../components/Meta';
 import { Color } from '../components/Color';
+import cross from "../images/cross.svg";
 
 const CompareProduct = () => {
     return (
@@ -14,13 +15,13 @@ const CompareProduct = () => {
                         <div className="col-3">
                             <div className="compare-product-card position-relative">
                                 <img
-                                    src="images/images/cross.svg"
+                                    src={cross}
                                     alt="cross"
                                     className="position-absolute cross img-fluid"
                                 />
                                 <div className="product-card-image">
                                     <img
-                                        src="images/images/watch.jpg" className="img-fluid w-100" alt="watch" />
+                                        src="https://cdn.shopify.com/s/files/1/0021/0527/8543/products/pure-msk-black-a-500x500500x500_540x.png?v=1633034486" className="img-fluid w-100" alt="watch" />
                                 </div>
                                 <div className="compare-product-details">
                                     <h5 className="title"> Honor T1 7.0 1 GB RAM 8 GB ROM 7 Inch With Wi-Fi+3G Tablet</h5>
@@ -57,13 +58,13 @@ const CompareProduct = () => {
                         <div className="col-3">
                             <div className="compare-product-card position-relative">
                                 <img
-                                    src="images/images/cross.svg"
+                                    src={cross}
                                     alt="cross"
                                     className="position-absolute cross img-fluid"
                                 />
                                 <div className="product-card-image">
                                     <img
-                                        src="images/images/tab.jpg" className="img-fluid w-100" alt="watch" />
+                                        src="https://cdn.shopify.com/s/files/1/0021/0527/8543/products/dynarex-3187-sensi-wrap-self-adherent-latex-free-1-x-5yd-tan-case-of-30_720x.jpg?v=1675702175" className="img-fluid" alt=""/>
                                 </div>
                                 <div className="compare-product-details">
                                     <h5 className="title"> Honor T1 7.0 1 GB RAM 8 GB ROM 7 Inch With Wi-Fi+3G Tablet</h5>

@@ -182,7 +182,7 @@ const OurStore = () => {
                                 <div>
                                     <div className="random-products d-flex mb-3">
                                         <div className="w-50">
-                                            <img src="images/images/tab.jpg" className="img-fluid" alt="" />
+                                            <img src="https://cdn.shopify.com/s/files/1/0021/0527/8543/products/dynarex-3187-sensi-wrap-self-adherent-latex-free-1-x-5yd-tan-case-of-30_720x.jpg?v=1675702175" className="img-fluid" alt="" />
                                         </div>
                                         <div className="w-50">
                                             <h5> Kids headphones bulk 10 pack multi colored for students</h5>
@@ -199,7 +199,7 @@ const OurStore = () => {
                                     <div className="random-products d-flex mb-3">
                                         <div className="w-50">
                                             <img
-                                                src="images/images/laptop.jpg"
+                                                src="https://cdn.shopify.com/s/files/1/0021/0527/8543/products/pure-msk-black-a-500x500500x500_540x.png?v=1633034486"
                                                 className="img-fluid"
                                                 alt="watch"
                                             />
@@ -250,10 +250,10 @@ const OurStore = () => {
                                         <div className="d-flex align-items-center gap-10">
                                             <p className="totalproducts mb-0">21 Products</p>
                                             <div className="d-flex gap-10 align-items-center grid">
-                                                <img onClick={() => {setGrid(3);}} src="images/images/gr4.svg" className="d-block img-fluid" alt="grid" />
-                                                <img onClick={() => {setGrid(4);}} src="images/images/gr3.svg" className="d-block img-fluid" alt="grid" />
-                                                <img onClick={() => {setGrid(6);}} src="images/images/gr2.svg" className="d-block img-fluid" alt="grid" />
-                                                <img onClick={() => {setGrid(12);}} src="images/images/gr.svg" className="d-block img-fluid" alt="grid" />
+                                                <img onClick={() => {setGrid(3);}} src="images/gr4.svg" className="d-block img-fluid" alt="grid" />
+                                                <img onClick={() => {setGrid(4);}} src="images/gr3.svg" className="d-block img-fluid" alt="grid" />
+                                                <img onClick={() => {setGrid(6);}} src="images/gr2.svg" className="d-block img-fluid" alt="grid" />
+                                                <img onClick={() => {setGrid(12);}} src="images/gr.svg" className="d-block img-fluid" alt="grid" />
                                             </div>
                                         </div>
                                     </div>

@@ -1,6 +1,11 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { BsSearch } from "react-icons/bs";
+import compare from "../images/compare.svg";
+import wishlist from "../images/wishlist.svg";
+import user from "../images/user.svg";
+import cart from "../images/cart.svg";
+import menu from "../images/menu.svg";
 
 const Header = () => {
   return (
@@ -50,28 +55,28 @@ const Header = () => {
               <div className="header-upper-links d-flex align-items-center justify-content-between">
                 <div>
                   <Link to="/compare-product" className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/images/compare.svg" alt="compare" />
+                    <img src={compare} alt="compare" />
                     <p className="mb-0"> Compare <br /> Products </p>
 
                   </Link>
                 </div>
                 <div>
                   <Link to="/wishlist" className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/images/wishlist.svg" alt="wishlist" />
+                    <img src={wishlist} alt="wishlist" />
                     <p className="mb-0"> Favourite <br /> Wishlist </p>
 
                   </Link>
                 </div>
                 <div>
                   <Link to="/login" className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/images/user.svg" alt="" />
+                    <img src={user} alt="" />
                     <p className="mb-0"> Log in <br /> My Account </p>
 
                   </Link>
                 </div>
                 <div>
                   <Link to="/cart" className="d-flex align-items-center gap-10 text-white">
-                    <img src="images/images/cart.svg" alt="cart" />
+                    <img src={cart} alt="cart" />
                     <div className="d-flex flex-column gap-10">
                       <span className="badge bg-white text-dark">0</span>
                       <p className="mb-0">$500</p>
@@ -108,7 +113,7 @@ const Header = () => {
                   <div className="d-flex align-items-center gap-30">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
-                    <NavLink to="/store">Our Store</NavLink>
+                    <NavLink to="/product">Our Store</NavLink>
                     <NavLink to="/doctor">Channeling</NavLink>
                     <NavLink to="/blog">Blogs</NavLink>
                     <NavLink to="/">Prescription</NavLink>

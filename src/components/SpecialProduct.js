@@ -7,8 +7,8 @@ const SpecialProduct = () => {
         <div className="col-6 mb-3">
             <div className="special-product-card">
                 <div className="d-flex justify-content-between">
-                    <div>
-                        <img src="images/images/watch.jpg" className="img-fluid" alt="watch" />
+                    <div className="img-fluid">
+                        <img src="https://ae01.alicdn.com/kf/Hf538d1f8fb7a4417b838dbeb215bed3bX.jpg_640x640Q90.jpg_.webp" className="img-fluid" alt="product image" />
                     </div>
                     <div className="special-product-content">
                         <h5 className="brand">Hemas</h5>
