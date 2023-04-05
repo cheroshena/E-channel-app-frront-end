@@ -38,7 +38,7 @@ const Header = () => {
             </div>
 
             <div className="col-5">
-              <div class="input-group">
+              <div className="input-group">
                 <input type="text"
                   className="form-control py-1"
                   placeholder="Search Product Here.."

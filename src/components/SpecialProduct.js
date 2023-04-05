@@ -37,7 +37,7 @@ const SpecialProduct = () => {
                         </div>
                         <div className="prod-count my-3">
                                 <p>Products: 5</p>
-                                <div class="progress">
+                                <div className="progress">
                                     <div className="progress-bar progress-bar-striped bg-info" 
                                     role="progressbar" 
                                     style={{width: "25%"}}
