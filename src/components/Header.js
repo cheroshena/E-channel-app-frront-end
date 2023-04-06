@@ -6,6 +6,7 @@ import wishlist from "../images/wishlist.svg";
 import user from "../images/user.svg";
 import cart from "../images/cart.svg";
 import menu from "../images/menu.svg";
+import Home from '../pages/Home';
 
 const Header = () => {
   return (
@@ -33,7 +34,7 @@ const Header = () => {
           <div className="row align-items-center">
             <div className="col-2">
               <h2>
-                <Link className="text-white">E-Doctor</Link>
+                <Link to="/" className="text-white">E-Doctor</Link>
               </h2>
             </div>
 
@@ -46,7 +47,7 @@ const Header = () => {
                   aria-describedby="basic-addon2"
                 />
                 <span className="input-group-text p-2" id="basic-addon2">
-                  <BsSearch className="fs-6" />
+                  <BsSearch className="fs-6 text-white" />
                 </span>
               </div>
             </div>
@@ -100,7 +101,7 @@ const Header = () => {
                 <div>
                   <div className="dropdown">
                     <button className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15 d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="images/images/menu.svg" alt="" /><span className="me-5 d-inline-block">Shop Categories</span>
+                      <img src="images/menu.svg" alt="" /><span className="me-5 d-inline-block">Shop Categories</span>
                     </button>
                     <ul className="dropdown-menu">
                       <li><Link className="dropdown-item text-white" to="">Action</Link></li>
@@ -112,11 +113,9 @@ const Header = () => {
                 <div className="menu-links">
                   <div className="d-flex align-items-center gap-30">
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/about">About</NavLink>
                     <NavLink to="/product">Our Store</NavLink>
-                    <NavLink to="/doctor">Channeling</NavLink>
+                    <NavLink to="/doctor">Doctors Channeling</NavLink>
                     <NavLink to="/blog">Blogs</NavLink>
-                    <NavLink to="/">Prescription</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                   </div>
                 </div>

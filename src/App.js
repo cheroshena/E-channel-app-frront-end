@@ -22,6 +22,9 @@ import TermAndCondition from './pages/TermAndCondition';
 import { SingleProduct } from './pages/SingleProduct';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import SingleDoctor from './pages/SingleDoctor';
+import Book from './pages/Book';
+import Checkoutdoc from './pages/Checkoutdoc';
 function App() {
   return <>
   <BrowserRouter>
@@ -33,6 +36,7 @@ function App() {
       <Route path='product' element={<OurStore/>}/>
       <Route path='product/:id' element={<SingleProduct/>}/>
       <Route path='doctor' element={<Doctor/>}/>
+      <Route path='doctor/:id' element={<SingleDoctor/>}/>
       <Route path='blog' element={<Blog/>}/>
       <Route path='blog/:id' element={<SingleBlog/>}/>
       <Route path='compare-product' element={<CompareProduct/>}/>
@@ -46,7 +50,9 @@ function App() {
       <Route path='shipping-policy' element={<ShippingPolicy/>}/>
       <Route path='term-conditions' element={<TermAndCondition/>}/>
       <Route path='cart' element={<Cart/>}/>
+      <Route path='book' element={<Book/>}/>
       <Route path='checkout' element={<Checkout/>}/>
+      <Route path='checkoutdoc' element={<Checkoutdoc/>}/>
 
 
     </Route>

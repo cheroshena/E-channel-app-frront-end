@@ -107,7 +107,7 @@ const OurStore = () => {
                                                 value=""
                                                 id="color-2"
                                             />
-                                            <label className="form-check-label" htmlFor="color-2">
+                                            <label className="form-check-label" htmlFor="color-3">
                                                 L (2)
                                             </label>
                                         </div>
@@ -118,7 +118,7 @@ const OurStore = () => {
                                                 value=""
                                                 id="color-2"
                                             />
-                                            <label className="form-check-label" htmlFor="color-2">
+                                            <label className="form-check-label" htmlFor="color-4">
                                                 XL (2)
                                             </label>
                                         </div>

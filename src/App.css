@@ -7,8 +7,8 @@
 :root{
   --color-131921:#131921;
   --color-3b4149:#3b4149;
-  --color-febd69:#febd69;
-  --color-232f3e:#232f3e;
+  --color-febd69:#37e8ff;
+  --color-232f3e:#3e3923;
   --color-bf4800:#bf4800;
   --color-f5f5f7:#f5f5f7;
   --color-ededed:#ededed;
@@ -83,14 +83,14 @@ a {
 
 /* Header part */
 .header-top-strip{
-  border-bottom:1px solid var(--color-3b4149) ;
-  background-color: var(--color-131921);
+  border-bottom:transparent ;
+  background-image: linear-gradient(to right, rgb(95, 183, 218), rgb(250, 118, 255));
 }
 .header-upper{
-  background-color: var(--color-131921);
+  background-image: linear-gradient(to right, rgb(95, 183, 218), rgb(250, 118, 255));
 }
 .header-bottom{
-  background-color: var(--color-3b4149);
+  background-image: linear-gradient(to right, rgb(95, 183, 218), rgb(250, 118, 255));
 }
 .header-upper .input-group-text{
   background-color: var(--color-febd69);
@@ -134,7 +134,7 @@ a {
 
 /*Footer part Start*/
 footer{
-  background-color: var(--color-232f3e);
+  background-image: linear-gradient(to right, rgb(95, 183, 218), rgb(250, 118, 255));
 }
 
 footer:not(:first-child) {
@@ -460,7 +460,7 @@ color: var(--color-1c1c1b);
   display: flex;
   gap: 20px;
 }
-.gr-6 .product-card{
+.gr-6 .product-card,.doctor-card{
   width: 100%;
 }
 .gr-6 .product-image img{
@@ -478,6 +478,76 @@ color: var(--color-1c1c1b);
 }
 /* Our Store end */
 
+
+/* Doctor card */
+.doctor-card{
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #0000001a;
+  width: 100%;
+}
+.doctor-card .doctor-image{
+  height: 270px;
+}
+.doctor-card .doctor-image img{
+  object-fit: contain;
+  
+}
+
+
+.doctor-card:hover .action-bar{
+  right: 15px;
+}
+.doctor-card .doctor-details h6 {
+  color: var(--color-bf4800);
+  font-size: 13px;
+
+}
+.doctor-card .doctor-details h5 {
+  font-size: 15px;
+  color: var(--color-1c1c1b);
+}
+.doctor-card .doctor-details p.price {
+font-size: 16px;
+color: var(--color-1c1c1b);
+
+}
+.doctor-card p.description{
+  font-size: 13px;
+  color: var(--color-777777);
+  margin-right: 20px;
+}
+.action-bar{
+  top: 10%;
+  right: -23px;
+  transition: 0.3s;
+}
+.wishlist-icon{
+  top: 2%;
+  right: 15px;
+}
+/* Doctor card end */
+/*Channeling page*/
+.gr-12 .doctor-card{
+  display: flex;
+  gap: 20px;
+}
+.gr-6 .doctor-card,.doctor-card{
+  width: 100%;
+}
+.gr-6 .doctor-image img{
+  margin: auto;
+  display: block;
+}
+.gr-12 .doctor-card .doctor-image{
+  width: 270px;
+}
+.gr-12 .doctor-card .doctor-image{
+  height:auto;
+}
+/*Channeling page end*/
 /* Contact Page */
 .contact-inner-wrapper{
   padding: 30px 20px;
