@@ -44,7 +44,7 @@ const OurStore = () => {
                                                 value=""
                                                 id=""
                                             />
-                                            <label className="form-check-label" htmlFor="">
+                                            <label className="form-check-label" htmlFor="in_stock">
                                                 In Stock (1)
                                             </label>
                                         </div>
@@ -55,7 +55,7 @@ const OurStore = () => {
                                                 value=""
                                                 id=""
                                             />
-                                            <label className="form-check-label" htmlFor="">
+                                            <label className="form-check-label" htmlFor="out_of_stock">
                                                 Out of Stock(0)
                                             </label>
                                         </div>
@@ -64,11 +64,11 @@ const OurStore = () => {
                                     <div className="d-flex align-items-center gap-10">
                                         <div className="form-floating">
                                             <input type="email" className="form-control" id="floatingInput" placeholder="From" />
-                                            <label htmlfor="floatingInput">From</label>
+                                            <label htmlFor="floating_Input">From</label>
                                         </div>
                                         <div className="form-floating">
                                             <input type="email" className="form-control" id="floatingInput1" placeholder="To" />
-                                            <label htmlfor="floatingInput1">To</label>
+                                            <label htmlFor="floating_Input1">To</label>
                                         </div>
                                     </div>
                                     <h5 className="sub-title">Colors</h5>
@@ -83,9 +83,9 @@ const OurStore = () => {
                                                 className="form-check-input"
                                                 type="checkbox"
                                                 value=""
-                                                id="color-1"
+                                                id=""
                                             />
-                                            <label className="form-check-label" htmlFor="color-1">
+                                            <label className="form-check-label" htmlFor="color_1">
                                                 S (2)
                                             </label>
                                         </div>
@@ -96,43 +96,11 @@ const OurStore = () => {
                                                 value=""
                                                 id="color-2"
                                             />
-                                            <label className="form-check-label" htmlFor="color-2">
+                                            <label className="form-check-label" htmlFor="color_1">
                                                 M (2)
                                             </label>
                                         </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value=""
-                                                id="color-2"
-                                            />
-                                            <label className="form-check-label" htmlFor="color-3">
-                                                L (2)
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value=""
-                                                id="color-2"
-                                            />
-                                            <label className="form-check-label" htmlFor="color-4">
-                                                XL (2)
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value=""
-                                                id="color-2"
-                                            />
-                                            <label className="form-check-label" htmlFor="color-2">
-                                                XXL (2)
-                                            </label>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -230,7 +198,7 @@ const OurStore = () => {
                                         </p>
                                         <select
                                             name=""
-                                            defaultValue={"manula"}
+                                            defaultValue={"manual"}
                                             className="form-control form-select"
                                             id=""
                                         >

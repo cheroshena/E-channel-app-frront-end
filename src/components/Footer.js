@@ -40,8 +40,8 @@ const Footer = () => {
                   New village Road, Ganemulla <br/> Negombo.<br/>
                   PinCode:113022
                 </address>
-                <a href="tel:+94 101 9398" className="mt- d-block mb-1 text-white">+94 101 939 7834</a>
-                <a href="mail to:#" className="mt-2 d-block mb-0 text-white">paientlook@edocpharmacy.com</a>
+                <a href="#" className="mt- d-block mb-1 text-white">+94 101 939 7834</a>
+                <a href="#" className="mt-2 d-block mb-0 text-white">paientlook@edocpharmacy.com</a>
                 <div className="social_icons d-flex align-items-center gap-30 mt-4">
                   <a className="text-white" href="#"> < BsLinkedin className="fs-4"/> </a>
                   <a className="text-white" href="#"> < BsYoutube className="fs-4"/> </a>

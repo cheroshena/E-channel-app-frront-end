@@ -9,10 +9,15 @@ const DoctorCard = (props) => {
     return (
         <>
             <div className={`${location.pathname == "/doctor" ? `gr-${grid}` : "col-3"}`}>
-                <Link to=":id" className="doctor-card position-relative">
+                <Link to={`${location.pathname == "/"
+                    ? "/doctor/:id"
+                    : location.pathname == "/doctor/:id"
+                        ? "/doctor/:id"
+                        : ":id"}`}
+                    className="doctor-card position-relative">
                     <div className="doctor-image">
                         <img src="https://www.carehospitals.com/assets/images/main/general-surgeon-aalok-somani.webp" className="img-fluid" alt="product image" />
-                        
+
 
                     </div>
                     <div className="doctor-details">
@@ -36,10 +41,15 @@ const DoctorCard = (props) => {
                 </Link>
             </div>
             <div className={`${location.pathname == "/doctor" ? `gr-${grid}` : "col-3"}`}>
-                <Link to=":id" className="doctor-card position-relative">
+                <Link to={`${location.pathname == "/"
+                    ? "/doctor/:id"
+                    : location.pathname == "/doctor/:id"
+                        ? "/doctor/:id"
+                        : ":id"}`}
+                    className="doctor-card position-relative">
                     <div className="doctor-image">
                         <img src="https://www.carehospitals.com/assets/images/main/general-surgeon-aalok-somani.webp" className="img-fluid" alt="product image" />
-                        
+
 
                     </div>
                     <div className="doctor-details">

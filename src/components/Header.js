@@ -21,7 +21,7 @@ const Header = () => {
             <div className="col-6">
               <p className="text-end text-white mb-0">
                 Hotline:{" "}
-                <a className="text-white" href="(011) 892 6000">(011) 892 6000</a>
+                <a className="text-white" href="#">(011) 892 6000</a>
               </p>
             </div>
 
@@ -104,9 +104,9 @@ const Header = () => {
                       <img src="images/menu.svg" alt="" /><span className="me-5 d-inline-block">Shop Categories</span>
                     </button>
                     <ul className="dropdown-menu">
-                      <li><Link className="dropdown-item text-white" to="">Action</Link></li>
-                      <li><Link className="dropdown-item text-white" to="">Another action</Link></li>
-                      <li><Link className="dropdown-item text-white" to="">Something else here</Link></li>
+                      <li><Link className="dropdown-item text-white" to="#">Action</Link></li>
+                      <li><Link className="dropdown-item text-white" to="#">Another action</Link></li>
+                      <li><Link className="dropdown-item text-white" to="#">Something else here</Link></li>
                     </ul>
                   </div>
                 </div>

@@ -71,7 +71,7 @@ export const SingleProduct = () => {
                                     />
                                     <p className="mb-0 t-review">( 2 Reviews )</p>
                                 </div>
-                                <a className="review-btn" href="#review">
+                                <a className="review-btn" href="#">
                                     Write a Review
                                 </a>
                             </div>
@@ -128,8 +128,8 @@ export const SingleProduct = () => {
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-center gap-15">
-                                    <div><a href=""><TbGitCompare className="fs-5 me-2" />Add to Compare</a></div>
-                                    <div><a href=""><AiOutlineHeart className="fs-5 me-2" />Add to Wishlist</a></div>
+                                    <div><a href="#"><TbGitCompare className="fs-5 me-2" />Add to Compare</a></div>
+                                    <div><a href="#"><AiOutlineHeart className="fs-5 me-2" />Add to Wishlist</a></div>
                                 </div>
                                 <div className="d-flex gap-10 flex-column  my-3">
                                     <h3 className="product-heading">Shipping & Returns :</h3>
@@ -142,7 +142,7 @@ export const SingleProduct = () => {
                                 <div className="d-flex gap-10 align-items-center my-3">
                                     <h3 className="product-heading">Product Link:&nbsp;</h3>
                                     <a
-                                        href="javascript:void(0);"
+                                        href="#"
                                         onClick={() => {
                                             copyToClipboard(
                                                 "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
@@ -200,7 +200,7 @@ export const SingleProduct = () => {
                                 </div>
                                 {orderedProduct && (
                                     <div>
-                                        <a className="text-dark " href="">Write a Review</a>
+                                        <a className="text-dark " href="#">Write a Review</a>
                                     </div>
                                 )}
                             </div>
