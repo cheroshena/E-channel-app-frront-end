@@ -5,31 +5,37 @@ import prodcompare from "../images/prodcompare.svg";
 import wish from "../images/wish.svg";
 import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
+import { useDispatch } from "react-redux";
+import { addToWishlist } from '../features/products/productSlice';
 
 const ProductCard = (props) => {
+    const dispatch = useDispatch();
     const { grid, data } = props;
-    console.log(data);
+    const addToWish = (id) => {
+        dispatch(addToWishlist(id));
+    };
     let location = useLocation();
+
     return (
         <>
             {
-               Array.isArray(data) && data.map((item, index) => {
+                data?.map((item, index) => {
                     return (
                         <div
                             key={index}
                             className={`${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
-                            <Link to={`${location.pathname == "/"
+                            <Link /*to={`${location.pathname == "/"
                                 ? "/product/:id"
                                 : location.pathname == "/product/:id"
                                     ? "/product/:id"
-                                    : ":id"}`}
+                                    : ":id"}`}*/
                                 className="product-card position-relative">
                                 <div className="wishlist-icon position-absolute">
-                                    <button className="border-0 bg-transparent"><img src={wish} alt="product image" /></button>
+                                    <button className="border-0 bg-transparent" onClick={() => { addToWish(item?._id) }}><img src={wish} alt="product image" /></button>
                                 </div>
                                 <div className="product-image">
                                     <img src={item?.images[0]?.url} className="img-fluid" alt="product image" />
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyZAYlQb_aZIPSbMSTMF33U17v-wFY0YdVwg&usqp=CAU" className="img-fluid" alt="product image" />
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyZAYlQb_aZIPSbMSTMF33U17v-wFY0YdVwg&usqp=CAU" className="img-fluid " alt="product image" />
                                 </div>
                                 <div className="product-details">
                                     <h6 className="brand">{item?.brand}</h6>
@@ -44,7 +50,7 @@ const ProductCard = (props) => {
                                         activeColor="#ffd700"
                                     />
                                     <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}
-                                    dangerouslySetInnerHTML={{__html: item?.description}}
+                                        dangerouslySetInnerHTML={{ __html: item?.description }}
                                     ></p>
                                     <p className="price">Rs. {item?.price}</p>
                                 </div>
