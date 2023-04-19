@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BreadCrumb from '../components/BreadCrumb';
 import Meta from '../components/Meta';
 import Container from '../components/Container';
 import DoctorCard from '../components/DoctorCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDoctors } from '../features/doctors/doctorSlice';
 
 const Doctor = () => {
   const [grid, setGrid] = useState(4);
+  const doctorState =useSelector((state) => state?.doctor?.doctor)
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getDoctors();
+  }, []);
+  const getDoctors = () => {
+    dispatch(getAllDoctors());
+  }
   return (
     <>
       <Meta title={"Doctors Channeling"} />
@@ -169,15 +180,15 @@ const Doctor = () => {
                 </div>
               </div>
             </div>
-            
+
           </div>
           <div className="col-9">
             <div className="filter-sort-grid mb-4">
               <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center gap-10">
                   <h6 className="mb-0 " style={{ color: '#777777' }}>WARNNING ! : only for channeling</h6>
-                  
-                  
+
+
                 </div>
                 <div>
                   <div className="d-flex align-items-center gap-10">
@@ -194,7 +205,7 @@ const Doctor = () => {
             </div>
             <div className="products-list pb-5">
               <div className="d-flex gap-10 flex-wrap">
-                <DoctorCard grid={grid} />
+                <DoctorCard data={doctorState?doctorState:[]} grid={grid} />
 
               </div>
             </div>
