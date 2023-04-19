@@ -1,74 +1,73 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
-import { productService } from "./productService";
 
+import { blogService } from "./blogService";
 
-//get all Products
-export const getAllProducts = createAsyncThunk("product/get", async (thunkAPI) => {
+//get all Blogs
+export const getAllBlogs = createAsyncThunk("blogs/get", async (thunkAPI) => {
     try {
-        return await productService.getProducts();
+        return await blogService.getBlogs();
     } catch (error) {
         return thunkAPI.rejectWithValue(error)
     }
 });
 
-//add to wishlist
-export const addToWishlist = createAsyncThunk("product/wishlist", async (prodId, thunkAPI) => {
+//get a Blog
+export const getABlog = createAsyncThunk("blog/get", async (id, thunkAPI) => {
     try {
-        return await productService.addToWishlist(prodId);
+        return await blogService.getBlog(id);
     } catch (error) {
         return thunkAPI.rejectWithValue(error);
     }
 });
 
-const productState = {
-    product: "",
+const blogState = {
+    blog: "",
     isError: false,
     isSuccess: false,
     isLoading: false,
     message: ""
 }
 
-export const productSlice = createSlice({
-    name: "product",
-    initialState: productState,
+export const blogSlice = createSlice({
+    name: "blog",
+    initialState: blogState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getAllProducts.pending, (state) => {
+            .addCase(getAllBlogs.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(getAllProducts.fulfilled, (state, action) => {
+            .addCase(getAllBlogs.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isError = false;
                 state.isSuccess = true;
-                state.product = action.payload;
+                state.blog = action.payload;
 
             })
-            .addCase(getAllProducts.rejected, (state, action) => {
+            .addCase(getAllBlogs.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;
                 state.message = action.error;
             })
-            .addCase(addToWishlist.pending, (state) => {
+            .addCase(getABlog.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(addToWishlist.fulfilled, (state, action) => {
+            .addCase(getABlog.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isError = false;
                 state.isSuccess = true;
-                state.addToWishlist = action.payload;
-                state.message = "Product added to Wishlist";
+                state.singleBlog = action.payload;
             })
-            .addCase(addToWishlist.rejected, (state, action) => {
+            .addCase(getABlog.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;
                 state.message = action.error;
             });
+
     },
 });
 
 
-export default productSlice.reducer;
+export default blogSlice.reducer;
