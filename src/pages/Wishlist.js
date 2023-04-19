@@ -15,7 +15,7 @@ const Wishlist = () => {
     const getWishlistFromDb = () => {
         dispatch(getUserProductWishlist());
     };
-    const wishlistState = useSelector((state) => state.auth?.wishlist?.wishlist);
+    const wishlistState = useSelector((state) => state?.auth?.wishlist?.wishlist);
     const removeFromWishlist = (id) => {
         dispatch(addToWishlist(id));
         setTimeout(() => {
@@ -31,10 +31,10 @@ const Wishlist = () => {
 
                 <div className="row">
                     {
-                        wishlistState?.length === 0 && <div className="text-center">No Products Add to WishList !</div>
+                        wishlistState && wishlistState?.length === 0 && <div className="text-center">No Products Add to WishList !</div>
                     }
                     {
-                        wishlistState?.map((item, index) => {
+                       wishlistState && wishlistState?.map((item, index) => {
                             return (
                                 <div className="col-3" key={index}>
 

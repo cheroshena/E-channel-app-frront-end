@@ -47,7 +47,7 @@ export const contactSlice = createSlice({
                 state.isSuccess = false;
                 state.message = action.error;
                 if(state.isError===true){
-                    toast.success("Something Wrong!")
+                    toast.error("Something Wrong!")
                 }
             });
     },
