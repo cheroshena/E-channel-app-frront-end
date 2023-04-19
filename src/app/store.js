@@ -3,6 +3,7 @@ import authReducer from "../features/user/userSlice";
 import productReducer from "../features/products/productSlice";
 import blogReducer from "../features/blogs/blogSlice";
 import  doctorReducer  from "../features/doctors/doctorSlice";
+import contactReducer from "../features/contact/contactSlice";
 
 
 
@@ -12,6 +13,9 @@ export const store = configureStore({
         product: productReducer,
         blog: blogReducer,
         doctor: doctorReducer,
+        contact:contactReducer,
+
+        
     },
 
 });
