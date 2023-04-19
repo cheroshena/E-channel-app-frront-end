@@ -9,17 +9,26 @@ import { services } from '../utils/Data';
 import moment from "moment";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBlogs } from '../features/blogs/blogSlice';
+import { getAllProducts } from '../features/products/productSlice';
 
 const Home = () => {
 
   const blogState = useSelector((state) => state?.blog?.blog);
+  const productState=useSelector((state) =>state?.product?.product);
+
+  
 
   const dispatch = useDispatch();
   useEffect(() => {
     getblogs();
+    getProducts();
   }, []);
   const getblogs = () => {
     dispatch(getAllBlogs())
+  };
+
+  const getProducts = () =>{
+    dispatch(getAllProducts());
   };
 
   return (
@@ -182,10 +191,26 @@ const Home = () => {
           </div>
         </div>
         <div className="row">
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
+          {
+            productState && productState?.map((item,index)=>{
+              if(item?.tags=== "special"){
+                return <SpecialProduct 
+                key={index} 
+                title={item?.title}
+                brand={item?.brand}
+                totalrating={item?.totalrating.toString()}
+                price={item?.price}
+                sold={item?.sold}
+                quantity={item?.quantity}
+                images={item?.images}
+                />;
+              }
+                
+              
+            })
+          }
+         
+          
         </div>
 
       </Container>

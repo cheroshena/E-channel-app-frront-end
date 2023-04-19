@@ -2,27 +2,28 @@ import React from 'react';
 import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';
 
-const SpecialProduct = () => {
+const SpecialProduct = (props) => {
+    const {title, brand, totalrating, price, sold, quantity, images}=props;
     return (
         <div className="col-6 mb-3">
             <div className="special-product-card">
                 <div className="d-flex justify-content-between">
                     <div className="img-fluid">
-                        <img src="https://ae01.alicdn.com/kf/Hf538d1f8fb7a4417b838dbeb215bed3bX.jpg_640x640Q90.jpg_.webp" className="img-fluid" alt="product image" />
+                        <img src={images[0]?.url} className="img-fluid" alt="product image" />
                     </div>
                     <div className="special-product-content">
-                        <h5 className="brand">Hemas</h5>
+                        <h5 className="brand">{brand}</h5>
                         <h6 className="title">
-                            bla bla bla shik
+                            {title}
                         </h6>
                         <ReactStars
                             count={5}
                             size={24}
-                            value={4}
+                            value={totalrating}
                             edit={false}
                             activeColor="#ffd700"
                         />
-                        <p className="price"><span className="red-p">Rs.250</span> &nbsp; <strike>Rs.300</strike>
+                        <p className="price"><span className="red-p">Rs.{price}</span> &nbsp; <strike>Rs.{price + 250}</strike>
                         </p>
                         <div className="discount-till d-flex align-items-center gap-10">
                             <p className="mb-0">
@@ -36,14 +37,14 @@ const SpecialProduct = () => {
                             
                         </div>
                         <div className="prod-count my-3">
-                                <p>Products: 5</p>
+                                <p>Products:{quantity}</p>
                                 <div className="progress">
                                     <div className="progress-bar progress-bar-striped bg-info" 
                                     role="progressbar" 
-                                    style={{width: "25%"}}
-                                    aria-valuenow="25" 
-                                    aria-valuemin="0" 
-                                    aria-valuemax="100"
+                                    style={{width: quantity/quantity+sold *100 +"%"}}
+                                    aria-valuenow={quantity/quantity+sold *100}
+                                    aria-valuemin={quantity}
+                                    aria-valuemax={sold + quantity}
                                     ></div>
                                 </div>
                             </div>
