@@ -10,33 +10,49 @@ import { TbGitCompare } from "react-icons/tb";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdContentCopy } from "react-icons/md";
 import Container from '../components/Container';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAProduct } from '../features/products/productSlice';
 import { toast } from 'react-toastify';
-import { addProdToCart } from '../features/user/userSlice';
+import { addProdToCart, getUserCart } from '../features/user/userSlice';
 
 
 export const SingleProduct = () => {
-    const[quantity,setQuantity]=useState(1)
+
+    const [quantity, setQuantity] = useState(1)
+    const [alreadyAdded, setAlreadyAdded] = useState(false)
 
 
     const location = useLocation()
+
+    const navigate = useNavigate()
 
     const getProductId = location.pathname.split("/")[2]
 
     const dispatch = useDispatch();
 
     const productState = useSelector(state => state?.product?.singleproduct)
-
+    const cartState = useSelector(state => state.auth.cartProducts)
     console.log(productState);
 
     useEffect(() => {
         dispatch(getAProduct(getProductId))
+        dispatch(getUserCart())
     }, [])
 
-    const uploadCart=()=>{
-        dispatch(addProdToCart({productId:productState?._id,quantity,price:productState?.price}))
+    useEffect(() => {
+        for (let index = 0; index < cartState?.length; index++) {
+            if (getProductId === cartState[index]?.productId?._id) {
+                setAlreadyAdded(true)
+
+            }
+
+        }
+    }, [])
+
+    const uploadCart = () => {
+        dispatch(addProdToCart({ productId: productState?._id, quantity, price: productState?.price }))
+        navigate('/cart')
     }
 
     const props = { width: 400, height: 600, zoomWidth: 600, img: productState?.images[0]?.url ? productState?.images[0]?.url : "https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941" };
@@ -109,26 +125,33 @@ export const SingleProduct = () => {
                                 </div>
 
                                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
-                                    <h3 className="product-heading">Quantity :</h3>
-                                    <div className="">
-                                        <input
-                                            type="number"
-                                            name=""
-                                            min={1}
-                                            max={productState?.quantity}
-                                            style={{ "width": "70px" }}
-                                            className="form-control"
-                                            id="" 
-                                            onChange={(e)=>setQuantity(e.target.value)}
-                                            value={quantity}
-                                            />
-                                    </div>
-                                    <div className="d-flex align-items-center gap-30 ms-5">
-                                        <button 
-                                        onClick={()=>{uploadCart()}} 
-                                        /*data-bs-toggle="modal" data-bs-target="#staticBackdrop"*/ 
-                                        className="button border-0" type="button">Add to Cart</button>
-                                        <button className="button signup">Buy Now</button>
+                                    {
+                                        alreadyAdded === false &&
+                                        <>
+                                            <h3 className="product-heading">Quantity :</h3>
+                                            <div className="">
+                                                <input
+                                                    type="number"
+                                                    name=""
+                                                    min={1}
+                                                    max={productState?.quantity}
+                                                    style={{ "width": "70px" }}
+                                                    className="form-control"
+                                                    id=""
+                                                    onChange={(e) => setQuantity(e.target.value)}
+                                                    value={quantity}
+                                                />
+                                            </div>
+                                        </>
+                                    }
+                                    <div className={alreadyAdded ? "ms-0" : "ms-5" + 'd-flex align-items-center gap-30 ms-5'}>
+                                        <button
+                                            onClick={() => { alreadyAdded ? navigate('/cart') : uploadCart() }}
+                                            /*data-bs-toggle="modal" data-bs-target="#staticBackdrop"*/
+                                            className="button border-0"
+                                            type="button"
+                                        >{alreadyAdded ? "Go to Cart" : "Add to Cart"}</button>
+
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-center gap-15">
