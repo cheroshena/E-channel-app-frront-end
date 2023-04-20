@@ -51,6 +51,17 @@ const removeProductFromCart = async (cartItemId) => {
     }
 }
 
+//User remove item own cart
+const updateProductFromCart = async (cartDetail) => {
+    console.log(cartDetail);
+    const response = await axios.delete(`${base_url}user/update-product-cart/${cartDetail.cartItemId}/${cartDetail.quantity}`, config);
+    if (response.data) {
+        return response.data;
+    }
+}
+
+
+
 export const authService = {
     register,
     login,
@@ -58,4 +69,5 @@ export const authService = {
     addToCart,
     getCart,
     removeProductFromCart,
+    updateProductFromCart,
 }
