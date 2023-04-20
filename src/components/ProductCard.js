@@ -19,7 +19,7 @@ const ProductCard = (props) => {
     return (
         <>
             {
-                data?.map((item, index) => {
+                Array.isArray(data) && data.map((item, index) => {
                     return (
                         <div
                             key={index}

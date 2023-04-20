@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BreadCrumb from '../components/BreadCrumb';
 import Meta from '../components/Meta';
 import ProductCard from '../components/ProductCard';
@@ -10,10 +10,22 @@ import { TbGitCompare } from "react-icons/tb";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdContentCopy } from "react-icons/md";
 import Container from '../components/Container';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAProduct } from '../features/products/productSlice';
 
 
 export const SingleProduct = () => {
-    const props = { width: 400, height: 600, zoomWidth: 600, img: "https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941" };
+    const location = useLocation()
+    
+    const getProductId = location.pathname.split("/")[2]
+    const dispatch = useDispatch();
+    const productState = useSelector(state=>state?.product?.singleproduct)
+    console.log(productState);
+    useEffect(()=>{
+dispatch(getAProduct(getProductId))
+    },[])
+    const props = { width: 400, height: 600, zoomWidth: 600, img:productState?.images[0]?.url ? productState?.images[0]?.url : "https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941" };
     const [orderedProduct, setorderedProduct] = useState(true);
     const copyToClipboard = (text) => {
         console.log("text", text);
@@ -35,37 +47,22 @@ export const SingleProduct = () => {
                             <div><ReactImageZoom {...props} />
                             </div>
                         </div>
-                        <div className="other-product-images d-flex flex-wrap gap-15">
-                            <div>
-                                <img
-                                    src="https://ae01.alicdn.com/kf/Hf538d1f8fb7a4417b838dbeb215bed3bX.jpg_640x640Q90.jpg_.webp"
-                                    className="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src="https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941"
-                                    className="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
+                        
                     </div>
                     <div className="col-6">
                         <div className="main-product-details">
                             <div className="border-bottom">
                                 <h3 className="title">
-                                    Kids Headphones Bulk 10 Pack Multi Colored For Students
+                                    {productState?.title}
                                 </h3>
                             </div>
                             <div className="border-bottom py-3">
-                                <p className="price">$ 100</p>
+                                <p className="price">Rs {productState?.price}</p>
                                 <div className="d-flex align-items-center gap-10">
                                     <ReactStars
                                         count={5}
                                         size={24}
-                                        value={4}
+                                        value={isNaN(parseFloat(productState?.totalrating)) ? 0 : parseFloat(productState?.totalrating)}
                                         edit={false}
                                         activeColor="#ffd700"
                                     />
@@ -77,39 +74,26 @@ export const SingleProduct = () => {
                             </div>
                             <div className="border-bottom py-3">
                                 <div className="d-flex gap-10 align-items-center my-2">
-                                    <h3 className="product-heading">Type :</h3>
-                                    <p className="product-data">Watch</p>
+                                    <h3 className="product-heading">Name :</h3>
+                                    <p className="product-data">{productState?.title}</p>
                                 </div>
                                 <div className="d-flex gap-10 align-items-center my-2">
                                     <h3 className="product-heading">Brand :</h3>
-                                    <p className="product-data">Havells</p>
+                                    <p className="product-data">{productState?.brand}</p>
                                 </div>
                                 <div className="d-flex gap-10 align-items-center my-2">
                                     <h3 className="product-heading">Category :</h3>
-                                    <p className="product-data">Watch</p>
+                                    <p className="product-data">{productState?.category}</p>
                                 </div>
                                 <div className="d-flex gap-10 align-items-center my-2">
                                     <h3 className="product-heading">Tags :</h3>
-                                    <p className="product-data">Watch</p>
+                                    <p className="product-data">{productState?.tags}</p>
                                 </div>
                                 <div className="d-flex gap-10 align-items-center my-2">
                                     <h3 className="product-heading">Availablity :</h3>
-                                    <p className="product-data">In Stock</p>
+                                    <p className="product-data">{productState?.quantity} Items</p>
                                 </div>
-                                <div className="d-flex gap-10 flex-column mt-2 mb-3">
-                                    <h3 className="product-heading">Size :</h3>
-                                    <div className="d-flex flex-wrap gap-15">
-                                        <span className="badge border border-1 bg-white text-dark border-secondary">S</span>
-                                        <span className="badge border border-1 bg-white text-dark border-secondary">M</span>
-                                        <span className="badge border border-1 bg-white text-dark border-secondary">L</span>
-                                        <span className="badge border border-1 bg-white text-dark border-secondary">XL</span>
-                                    </div>
-                                </div>
-                                <div className="d-flex gap-10 flex-column mt-2 mb-3">
-                                    <h3 className="product-heading">Color :</h3>
-                                    <Color />
-
-                                </div>
+                                
                                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
                                     <h3 className="product-heading">Quantity :</h3>
                                     <div className="">
@@ -117,7 +101,7 @@ export const SingleProduct = () => {
                                             type="number"
                                             name=""
                                             min={1}
-                                            max={10}
+                                            max={productState?.quantity}
                                             style={{ "width": "70px" }}
                                             className="form-control"
                                             id="" />
@@ -145,7 +129,7 @@ export const SingleProduct = () => {
                                         href="#"
                                         onClick={() => {
                                             copyToClipboard(
-                                                "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
+                                                window.location.href
                                             );
                                         }}
                                     >
@@ -164,15 +148,8 @@ export const SingleProduct = () => {
                         <h4>Description</h4>
                         <div className="bg-white p-3">
 
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                Tenetur nisi similique illum aut perferendis voluptas, quisquam
-                                obcaecati qui nobis officia. Voluptatibus in harum deleniti
-                                labore maxime officia esse eos? Repellat?
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                Tenetur nisi similique illum aut perferendis voluptas, quisquam
-                                obcaecati qui nobis officia. Voluptatibus in harum deleniti
-                                labore maxime officia esse eos? Repellat?
+                            <p dangerouslySetInnerHTML={{ __html: productState?.description }}>
+                            
                             </p>
                         </div>
                     </div>
