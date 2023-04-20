@@ -13,19 +13,33 @@ import Container from '../components/Container';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAProduct } from '../features/products/productSlice';
+import { toast } from 'react-toastify';
+import { addProdToCart } from '../features/user/userSlice';
 
 
 export const SingleProduct = () => {
+    const[quantity,setQuantity]=useState(1)
+
+
     const location = useLocation()
-    
+
     const getProductId = location.pathname.split("/")[2]
+
     const dispatch = useDispatch();
-    const productState = useSelector(state=>state?.product?.singleproduct)
+
+    const productState = useSelector(state => state?.product?.singleproduct)
+
     console.log(productState);
-    useEffect(()=>{
-dispatch(getAProduct(getProductId))
-    },[])
-    const props = { width: 400, height: 600, zoomWidth: 600, img:productState?.images[0]?.url ? productState?.images[0]?.url : "https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941" };
+
+    useEffect(() => {
+        dispatch(getAProduct(getProductId))
+    }, [])
+
+    const uploadCart=()=>{
+        dispatch(addProdToCart({productId:productState?._id,quantity,price:productState?.price}))
+    }
+
+    const props = { width: 400, height: 600, zoomWidth: 600, img: productState?.images[0]?.url ? productState?.images[0]?.url : "https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941" };
     const [orderedProduct, setorderedProduct] = useState(true);
     const copyToClipboard = (text) => {
         console.log("text", text);
@@ -47,7 +61,7 @@ dispatch(getAProduct(getProductId))
                             <div><ReactImageZoom {...props} />
                             </div>
                         </div>
-                        
+
                     </div>
                     <div className="col-6">
                         <div className="main-product-details">
@@ -93,7 +107,7 @@ dispatch(getAProduct(getProductId))
                                     <h3 className="product-heading">Availablity :</h3>
                                     <p className="product-data">{productState?.quantity} Items</p>
                                 </div>
-                                
+
                                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
                                     <h3 className="product-heading">Quantity :</h3>
                                     <div className="">
@@ -104,10 +118,16 @@ dispatch(getAProduct(getProductId))
                                             max={productState?.quantity}
                                             style={{ "width": "70px" }}
                                             className="form-control"
-                                            id="" />
+                                            id="" 
+                                            onChange={(e)=>setQuantity(e.target.value)}
+                                            value={quantity}
+                                            />
                                     </div>
                                     <div className="d-flex align-items-center gap-30 ms-5">
-                                        <button className="button border-0" type="submit">Add to Cart</button>
+                                        <button 
+                                        onClick={()=>{uploadCart()}} 
+                                        /*data-bs-toggle="modal" data-bs-target="#staticBackdrop"*/ 
+                                        className="button border-0" type="button">Add to Cart</button>
                                         <button className="button signup">Buy Now</button>
                                     </div>
                                 </div>
@@ -149,7 +169,7 @@ dispatch(getAProduct(getProductId))
                         <div className="bg-white p-3">
 
                             <p dangerouslySetInnerHTML={{ __html: productState?.description }}>
-                            
+
                             </p>
                         </div>
                     </div>
