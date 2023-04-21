@@ -5,31 +5,46 @@ import DoctorCard from '../components/DoctorCard';
 import ReactStars from "react-rating-stars-component";
 import { useState } from 'react';
 import Container from '../components/Container';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getADoctor } from '../features/doctors/doctorSlice';
 import { toast } from 'react-toastify';
-import { addProdToSelectdoc } from '../features/user/userSlice';
+import { addProdToSelectdoc, getUserSelectdoc } from '../features/user/userSlice';
 
 
 const SingleDoctor = () => {
-    const [quantity,setQuantity]=useState(1)
+    const [quantity, setQuantity] = useState(1)
+    const [alreadyAdded, setAlreadyAdded] = useState(false)
 
+    const location = useLocation();
 
-    const location = useLocation()
+    const navigate = useNavigate()
 
 
     const getDoctorId = location.pathname.split("/")[2]
 
     const dispatch = useDispatch();
+
     const doctorState = useSelector(state => state?.doctor?.singledoctor)
+    const selectdocState = useSelector(state => state?.auth?.selectdocDoctors)
     console.log(doctorState);
     useEffect(() => {
         dispatch(getADoctor(getDoctorId))
+        dispatch(getUserSelectdoc())
     }, [])
 
-    const uploadSelectdoc=()=>{
-        dispatch(addProdToSelectdoc({doctorId:doctorState?._id,quantity}))
+    useEffect(() => {
+        for (let index = 0; index < selectdocState?.length; index++) {
+            if (getDoctorId === selectdocState[index]?.doctorId?._id) {
+                setAlreadyAdded(true)
+            }
+
+        }
+    }, [])
+
+    const uploadSelectdoc = () => {
+        dispatch(addProdToSelectdoc({ doctorId: doctorState?._id, quantity }))
+        navigate ('/book')
     }
 
     const [orderedProduct, setorderedProduct] = useState(true);
@@ -106,29 +121,34 @@ const SingleDoctor = () => {
 
                                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
                                     <h3 className="product-heading">Quantity :</h3>
-                                    <div className="">
-                                        <input
-                                            type="number"
-                                            name=""
-                                            min={1}
-                                            max={10}
-                                            style={{ "width": "70px" }}
-                                            className="form-control"
-                                            id="" 
-                                            onChange={(e)=>setQuantity(e.target.value)}
-                                            value={quantity}
-                                            />
-                                    </div>
-                                    <div className="d-flex align-items-center gap-30 ms-5">
+                                    {
+                                        alreadyAdded === false &&
+                                        <>
+                                            <div className="">
+                                                <input
+                                                    type="number"
+                                                    name=""
+                                                    min={1}
+                                                    max={10}
+                                                    style={{ "width": "70px" }}
+                                                    className="form-control"
+                                                    id=""
+                                                    onChange={(e) => setQuantity(e.target.value)}
+                                                    value={quantity}
+                                                />
+                                            </div>
+                                        </>
+                                    }
+                                    <div className={alreadyAdded ? "ms-0" : "ms-5" + "d-flex align-items-center gap-30 ms-5"}>
                                         <Link to="/doctor" className="button text-white">
                                             Cancel
                                         </Link>
-                                        <button  
-                                        className="button border-0"
-                                        type="button"
-                                        onClick={()=>{uploadSelectdoc()}}
+                                        <button
+                                            className="button border-0"
+                                            type="button"
+                                            onClick={() => { alreadyAdded? navigate ('/book'): uploadSelectdoc() }}
                                         >
-                                            Add to Booking
+                                            {alreadyAdded ? "Go to Booking" : "Add to Booking"}
                                         </button>
                                     </div>
                                 </div>
@@ -136,7 +156,7 @@ const SingleDoctor = () => {
                                 <div className="d-flex gap-10 flex-column  my-3">
                                     <h3 className="product-heading">Special Note</h3>
                                     <p className="product-data" dangerouslySetInnerHTML={{ __html: doctorState?.discription }}>
-                                    
+
                                     </p>
                                 </div>
                             </div>
