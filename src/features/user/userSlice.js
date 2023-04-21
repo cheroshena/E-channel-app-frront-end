@@ -29,7 +29,7 @@ export const getUserProductWishlist = createAsyncThunk("user/wishlist", async (t
     }
 });
 
-//Get User add to cart
+//Get User Product add to cart
 export const addProdToCart = createAsyncThunk("user/cart/add", async (cartData,thunkAPI) => {
     try {
         return await authService.addToCart(cartData);
@@ -60,6 +60,24 @@ export const deleteCartProduct = createAsyncThunk("user/cart/product/delete", as
 export const updateCartProduct = createAsyncThunk("user/cart/product/update", async (cartDetail,thunkAPI) => {
     try {
         return await authService.updateProductFromCart(cartDetail);
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+});
+
+//Get User Product add to cart
+export const addProdToSelectdoc = createAsyncThunk("user/selectdoc/add", async (selectdocData,thunkAPI) => {
+    try {
+        return await authService.addToSelectdoc(selectdocData);
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+});
+
+//Get User Product add to cart
+export const getUserSelectdoc = createAsyncThunk("user/selectdoc/get", async (thunkAPI) => {
+    try {
+        return await authService.getSelectdoc();
     } catch (error) {
         return thunkAPI.rejectWithValue(error);
     }
@@ -220,6 +238,40 @@ export const authSlice = createSlice({
                 if(state.isSuccess===false){
                     toast.error("Something Went Wrong!")
                 }
+            })
+            .addCase(addProdToSelectdoc.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(addProdToSelectdoc.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.isSuccess = true;
+                state.selectDoctor = action.payload;
+                if(state.isSuccess){
+                    toast.success("Your Doctor add to Channel !")
+                }
+            })
+            .addCase(addProdToSelectdoc.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.isSuccess = false;
+                state.message = action.error;
+            })
+            .addCase(getUserSelectdoc.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getUserSelectdoc.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.isSuccess = true;
+                state.selectdocDoctors = action.payload;
+                
+            })
+            .addCase(getUserSelectdoc.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.isSuccess = false;
+                state.message = action.error;
             });
     },
 });

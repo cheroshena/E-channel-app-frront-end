@@ -128,6 +128,7 @@ const Header = () => {
                     <NavLink to="/product">Our Store</NavLink>
                     <NavLink to="/doctor">Doctors Channeling</NavLink>
                     <NavLink to="/blog">Blogs</NavLink>
+                    <NavLink to="/book"> Doctor Booking</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                   </div>
                 </div>

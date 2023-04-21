@@ -8,12 +8,16 @@ import Container from '../components/Container';
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getADoctor } from '../features/doctors/doctorSlice';
+import { toast } from 'react-toastify';
+import { addProdToSelectdoc } from '../features/user/userSlice';
 
 
 const SingleDoctor = () => {
+    const [quantity,setQuantity]=useState(1)
+
 
     const location = useLocation()
-    console.log(location);
+
 
     const getDoctorId = location.pathname.split("/")[2]
 
@@ -23,6 +27,10 @@ const SingleDoctor = () => {
     useEffect(() => {
         dispatch(getADoctor(getDoctorId))
     }, [])
+
+    const uploadSelectdoc=()=>{
+        dispatch(addProdToSelectdoc({doctorId:doctorState?._id,quantity}))
+    }
 
     const [orderedProduct, setorderedProduct] = useState(true);
     const copyToClipboard = (text) => {
@@ -106,15 +114,22 @@ const SingleDoctor = () => {
                                             max={10}
                                             style={{ "width": "70px" }}
                                             className="form-control"
-                                            id="" />
+                                            id="" 
+                                            onChange={(e)=>setQuantity(e.target.value)}
+                                            value={quantity}
+                                            />
                                     </div>
                                     <div className="d-flex align-items-center gap-30 ms-5">
                                         <Link to="/doctor" className="button text-white">
                                             Cancel
                                         </Link>
-                                        <Link to="/book" className="button text-white">
+                                        <button  
+                                        className="button border-0"
+                                        type="button"
+                                        onClick={()=>{uploadSelectdoc()}}
+                                        >
                                             Add to Booking
-                                        </Link>
+                                        </button>
                                     </div>
                                 </div>
 

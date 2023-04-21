@@ -28,15 +28,15 @@ const getUserWislist = async () => {
 };
 
 //User Add to Product to Cart
-const addToCart=async(cartData)=>{
-    const response = await axios.post(`${base_url}user/cart`,cartData, config);
+const addToCart = async (cartData) => {
+    const response = await axios.post(`${base_url}user/cart`, cartData, config);
     if (response.data) {
         return response.data;
     }
 }
 
 //User get own cart
-const getCart=async()=>{
+const getCart = async () => {
     const response = await axios.get(`${base_url}user/cart`, config);
     if (response.data) {
         return response.data;
@@ -51,7 +51,7 @@ const removeProductFromCart = async (cartItemId) => {
     }
 }
 
-//User remove item own cart
+//User update quantity
 const updateProductFromCart = async (cartDetail) => {
     console.log(cartDetail);
     const response = await axios.delete(`${base_url}user/update-product-cart/${cartDetail.cartItemId}/${cartDetail.quantity}`, config);
@@ -59,6 +59,23 @@ const updateProductFromCart = async (cartDetail) => {
         return response.data;
     }
 }
+
+//User Add to Doctor to 
+const addToSelectdoc = async (selectdocData) => {
+    const response = await axios.post(`${base_url}user/selectdoc`, selectdocData, config);
+    if (response.data) {
+        return response.data;
+    }
+}
+
+//get user add doctor for channel page
+const getSelectdoc = async () => {
+    const response = await axios.get(`${base_url}user/selectdoc`, config);
+    if (response.data) {
+        return response.data;
+    }
+}
+
 
 
 
@@ -70,4 +87,6 @@ export const authService = {
     getCart,
     removeProductFromCart,
     updateProductFromCart,
+    addToSelectdoc,
+    getSelectdoc,
 }
