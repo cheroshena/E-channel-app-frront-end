@@ -55,7 +55,7 @@ export const SingleProduct = () => {
         navigate('/cart')
     }
 
-    const props = { width: 400, height: 600, zoomWidth: 600, img: productState?.images[0]?.url ? productState?.images[0]?.url : "https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941" };
+    const props = { width: 400, height: 600, zoomWidth: 600, img: productState?.images?.[0]?.url ? productState?.images[0]?.url : "https://cdn.shopify.com/s/files/1/2199/5291/products/stethoscope-duplex-baby-614409.jpg?v=1619021941" };
     const [orderedProduct, setorderedProduct] = useState(true);
     const copyToClipboard = (text) => {
         console.log("text", text);
@@ -69,7 +69,7 @@ export const SingleProduct = () => {
     return (
         <>
             <Meta title={"Product Name"} />
-            <BreadCrumb title="Product Name" />
+            <BreadCrumb title={productState?.title} />
             <Container class1="main-product-wrapper py-5 home-wrapper-2">
                 <div className="row">
                     <div className="col-6">

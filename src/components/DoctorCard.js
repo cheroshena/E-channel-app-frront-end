@@ -5,24 +5,24 @@ import { Link, useLocation } from 'react-router-dom';
 
 const DoctorCard = (props) => {
     const { grid, data } = props;
-    console.log(data);
+    
     let location = useLocation();
     return (
         <>
             {
-                data?.map((item, index) => {
+                Array.isArray(data) && data.map((item, index) => {
                     return (
                         <div 
                         key={index}
                         className={`${location.pathname == "/doctor" ? `gr-${grid}` : "col-3"}`}>
-                            <Link to={`${location.pathname == "/"
+                            <Link to={'/doctor/'+item?._id} /* to={`${location.pathname == "/"
                                 ? "/doctor/:id"
                                 : location.pathname == "/doctor/:id"
                                     ? "/doctor/:id"
-                                    : ":id"}`}
+                                    : ":id"}`}*/
                                 className="doctor-card position-relative">
                                 <div className="doctor-image">
-                                    <img src={item?.images[0]?.url} className="img-fluid" alt="product image" />
+                                    <img src={item?.images?.[0].url} className="img-fluid" alt="product image" />
 
 
                                 </div>

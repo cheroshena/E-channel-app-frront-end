@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BreadCrumb from '../components/BreadCrumb';
 import Meta from '../components/Meta';
 import DoctorCard from '../components/DoctorCard';
 import ReactStars from "react-rating-stars-component";
 import { useState } from 'react';
 import Container from '../components/Container';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { getADoctor } from '../features/doctors/doctorSlice';
+
 
 const SingleDoctor = () => {
+
+    const location = useLocation()
+    console.log(location);
+
+    const getDoctorId = location.pathname.split("/")[2]
+
+    const dispatch = useDispatch();
+    const doctorState = useSelector(state => state?.doctor?.singledoctor)
+    console.log(doctorState);
+    useEffect(() => {
+        dispatch(getADoctor(getDoctorId))
+    }, [])
+
     const [orderedProduct, setorderedProduct] = useState(true);
     const copyToClipboard = (text) => {
-        console.log("text", text);
+
         var textField = document.createElement("textarea");
         textField.innerText = text;
         document.body.appendChild(textField);
@@ -21,12 +37,13 @@ const SingleDoctor = () => {
     return (
         <>
             <Meta title={"Doctor Name"} />
-            <BreadCrumb title="Doctor Name" />
+            <BreadCrumb title={doctorState?.name} />
             <Container class1="main-product-wrapper py-5 home-wrapper-2">
                 <div className="row">
                     <div className="col-6">
                         <div className="main-product-image">
-                            <div><img src="https://www.carehospitals.com/assets/images/main/general-surgeon-aalok-somani.webp" className="img-fluid" alt="product image" />
+                            <div>
+                                <img src={doctorState?.images?.[0]?.url} />
                             </div>
                         </div>
                     </div>
@@ -34,16 +51,16 @@ const SingleDoctor = () => {
                         <div className="main-product-details">
                             <div className="border-bottom">
                                 <h3 className="title">
-                                    Medical Geneticists
+                                    {doctorState?.specialize}
                                 </h3>
                             </div>
                             <div className="border-bottom py-3">
-                                <p className="price">Dr.A.Gunarathna</p>
+                                <p className="price">{doctorState?.name}</p>
                                 <div className="d-flex align-items-center gap-10">
                                     <ReactStars
                                         count={5}
                                         size={24}
-                                        value={4}
+                                        value={doctorState?.doctotalrating?.toString()}
                                         edit={false}
                                         activeColor="#ffd700"
                                     />
@@ -59,20 +76,24 @@ const SingleDoctor = () => {
                                     <p className="product-data">Medical Geneticists</p>
                                 </div>
                                 <div className="d-flex gap-10 align-items-center my-2">
+                                    <h3 className="product-heading">Gender :</h3>
+                                    <p className="product-data">{doctorState?.gender}</p>
+                                </div>
+                                <div className="d-flex gap-10 align-items-center my-2">
                                     <h3 className="product-heading">Registration :</h3>
-                                    <p className="product-data">DV678221</p>
+                                    <p className="product-data">{doctorState?.regno}</p>
                                 </div>
                                 <div className="d-flex gap-10 align-items-center my-2">
                                     <h3 className="product-heading">Qualifications :</h3>
-                                    <p className="product-data">Watch</p>
-                                </div>
-                                <div className="d-flex gap-10 align-items-center my-2">
-                                    <h3 className="product-heading">Practising Government Hospitals :</h3>
-                                    <p className="product-data">Watch</p>
+                                    <p className="product-data">{doctorState?.qulification}</p>
                                 </div>
                                 <div className="d-flex gap-10 align-items-center my-2">
                                     <h3 className="product-heading">Experience :</h3>
-                                    <p className="product-data">In Stock</p>
+                                    <p className="product-data">{doctorState?.expirience}</p>
+                                </div>
+                                <div className="d-flex gap-10 align-items-center my-2">
+                                    <h3 className="product-heading">Channeling Time Duration :</h3>
+                                    <p className="product-data">{doctorState?.timeduration}</p>
                                 </div>
 
                                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
@@ -99,12 +120,8 @@ const SingleDoctor = () => {
 
                                 <div className="d-flex gap-10 flex-column  my-3">
                                     <h3 className="product-heading">Special Note</h3>
-                                    <p className="product-data">
-                                        These are specialists in family medicine, internal medicine, pediatrics and geriatrics and provide the primary resources — conducting routine physicals, prescribing medicines, treating minor illnesses, managing chronic conditions — for these defined populations and are typically the first point of contact, says Jones.
-                                        Primary care physicians are advocates for the patient in coordinating the use of the entire health care system to benefit the patient, according to the American Academy of Family Physicians.
-                                        “I tell students you can’t go wrong specializing in primary care,” says Jones. “You may end up caring for the health of generation in one family. That, our graduates tell us, can be extremely rewarding.”
-                                        Family physicians are the most in-demand physicians, followed by internal medicine, according to the Doximity report. <br /> <br />
-                                        <b>"You want to channeling Doctor click the 'Book' Button and after fill the form"</b>
+                                    <p className="product-data" dangerouslySetInnerHTML={{ __html: doctorState?.discription }}>
+                                    
                                     </p>
                                 </div>
                             </div>

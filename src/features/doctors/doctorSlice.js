@@ -9,6 +9,14 @@ export const getAllDoctors = createAsyncThunk("doctor/get", async (thunkAPI) => 
     }
 });
 
+export const getADoctor = createAsyncThunk("doctor/getADoctor", async (id,thunkAPI) => {
+    try {
+        return await doctorService.getSingleDoctor(id);
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error)
+    }
+});
+
 
 const doctorState = {
     doctor: "",
@@ -36,6 +44,23 @@ export const doctorSlice = createSlice({
 
             })
             .addCase(getAllDoctors.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.isSuccess = false;
+                state.message = action.error;
+            })
+            .addCase(getADoctor.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getADoctor.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.isSuccess = true;
+                state.singledoctor = action.payload;
+                state.message="Doctor Fetched Successfully!"
+
+            })
+            .addCase(getADoctor.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;
