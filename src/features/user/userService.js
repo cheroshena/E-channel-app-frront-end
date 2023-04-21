@@ -76,6 +76,15 @@ const getSelectdoc = async () => {
     }
 }
 
+//User remove item own Doctor Booking
+const removeDoctorFromSelectdoc = async (selectdocItemId) => {
+
+    const response = await axios.delete(`${base_url}user/delete-doctor-selectdoc/${selectdocItemId}`, config);
+    if (response.data) {
+        return response.data;
+    }
+}
+
 
 
 
@@ -89,4 +98,5 @@ export const authService = {
     updateProductFromCart,
     addToSelectdoc,
     getSelectdoc,
+    removeDoctorFromSelectdoc,
 }

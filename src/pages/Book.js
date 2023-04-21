@@ -5,7 +5,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Container from '../components/Container';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserSelectdoc } from '../features/user/userSlice';
+import { deleteSelectdocDoctor, getUserSelectdoc } from '../features/user/userSlice';
 
 
 const Book = () => {
@@ -14,6 +14,12 @@ const Book = () => {
     useEffect(() => {
         dispatch(getUserSelectdoc())
     }, [])
+    const deleteASelectdocDoctor =(id)=>{
+        dispatch(deleteSelectdocDoctor(id))
+        setTimeout(()=>{
+            dispatch(getUserSelectdoc())
+        },200)
+    }
  
     return (
         <>
@@ -49,7 +55,7 @@ const Book = () => {
                                         </div>
                                         <div className="cart-col-4">
                                             
-                                                <AiFillDelete className="text-danger " />
+                                                <AiFillDelete onClick={()=>{deleteASelectdocDoctor(item?._id)}} className="text-danger " />
                                             
                                         </div>
                                         
@@ -65,7 +71,7 @@ const Book = () => {
                             Continue To Channeling
                         </Link>
                         <div className="d-flex flex-column align-items-end">
-                            <h4>Channeling Doctor : Dr.A.Gunarathna</h4>
+                           
                             <p>You Click the "Channel" Button You Redirect to Channel information form <b>Please fill the Your Information for contact you</b> </p>
 
                             <Link to="/checkoutdoc" className="button">

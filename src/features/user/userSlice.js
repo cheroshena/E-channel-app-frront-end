@@ -30,7 +30,7 @@ export const getUserProductWishlist = createAsyncThunk("user/wishlist", async (t
 });
 
 //Get User Product add to cart
-export const addProdToCart = createAsyncThunk("user/cart/add", async (cartData,thunkAPI) => {
+export const addProdToCart = createAsyncThunk("user/cart/add", async (cartData, thunkAPI) => {
     try {
         return await authService.addToCart(cartData);
     } catch (error) {
@@ -48,7 +48,7 @@ export const getUserCart = createAsyncThunk("user/cart/get", async (thunkAPI) =>
 });
 
 //Delete User cart
-export const deleteCartProduct = createAsyncThunk("user/cart/product/delete", async (cartItemId,thunkAPI) => {
+export const deleteCartProduct = createAsyncThunk("user/cart/product/delete", async (cartItemId, thunkAPI) => {
     try {
         return await authService.removeProductFromCart(cartItemId);
     } catch (error) {
@@ -57,7 +57,7 @@ export const deleteCartProduct = createAsyncThunk("user/cart/product/delete", as
 });
 
 //Update User cart quantity
-export const updateCartProduct = createAsyncThunk("user/cart/product/update", async (cartDetail,thunkAPI) => {
+export const updateCartProduct = createAsyncThunk("user/cart/product/update", async (cartDetail, thunkAPI) => {
     try {
         return await authService.updateProductFromCart(cartDetail);
     } catch (error) {
@@ -66,7 +66,7 @@ export const updateCartProduct = createAsyncThunk("user/cart/product/update", as
 });
 
 //Get User Product add to cart
-export const addProdToSelectdoc = createAsyncThunk("user/selectdoc/add", async (selectdocData,thunkAPI) => {
+export const addProdToSelectdoc = createAsyncThunk("user/selectdoc/add", async (selectdocData, thunkAPI) => {
     try {
         return await authService.addToSelectdoc(selectdocData);
     } catch (error) {
@@ -78,6 +78,15 @@ export const addProdToSelectdoc = createAsyncThunk("user/selectdoc/add", async (
 export const getUserSelectdoc = createAsyncThunk("user/selectdoc/get", async (thunkAPI) => {
     try {
         return await authService.getSelectdoc();
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+});
+
+//Delete User Select doctor
+export const deleteSelectdocDoctor = createAsyncThunk("user/selectdoc/doctor/delete", async (selectdocItemId, thunkAPI) => {
+    try {
+        return await authService.removeDoctorFromSelectdoc(selectdocItemId);
     } catch (error) {
         return thunkAPI.rejectWithValue(error);
     }
@@ -169,7 +178,7 @@ export const authSlice = createSlice({
                 state.isError = false;
                 state.isSuccess = true;
                 state.cartProduct = action.payload;
-                if(state.isSuccess){
+                if (state.isSuccess) {
                     toast.success("Your Product add to Cart !")
                 }
             })
@@ -187,7 +196,7 @@ export const authSlice = createSlice({
                 state.isError = false;
                 state.isSuccess = true;
                 state.cartProducts = action.payload;
-                
+
             })
             .addCase(getUserCart.rejected, (state, action) => {
                 state.isLoading = false;
@@ -203,17 +212,17 @@ export const authSlice = createSlice({
                 state.isError = false;
                 state.isSuccess = true;
                 state.deletedCartProduct = action.payload;
-                if(state.isSuccess){
+                if (state.isSuccess) {
                     toast.success("Delete a Product From Cart!")
                 }
-                
+
             })
             .addCase(deleteCartProduct.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;
                 state.message = action.error;
-                if(state.isSuccess===false){
+                if (state.isSuccess === false) {
                     toast.error("Something Went Wrong!")
                 }
             })
@@ -225,17 +234,17 @@ export const authSlice = createSlice({
                 state.isError = false;
                 state.isSuccess = true;
                 state.updatedCartProduct = action.payload;
-                if(state.isSuccess){
+                if (state.isSuccess) {
                     toast.success("Updated Quantity")
                 }
-                
+
             })
             .addCase(updateCartProduct.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;
                 state.message = action.error;
-                if(state.isSuccess===false){
+                if (state.isSuccess === false) {
                     toast.error("Something Went Wrong!")
                 }
             })
@@ -247,7 +256,7 @@ export const authSlice = createSlice({
                 state.isError = false;
                 state.isSuccess = true;
                 state.selectDoctor = action.payload;
-                if(state.isSuccess){
+                if (state.isSuccess) {
                     toast.success("Your Doctor add to Channel !")
                 }
             })
@@ -265,13 +274,35 @@ export const authSlice = createSlice({
                 state.isError = false;
                 state.isSuccess = true;
                 state.selectdocDoctors = action.payload;
-                
+
             })
             .addCase(getUserSelectdoc.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;
                 state.message = action.error;
+            })
+            .addCase(deleteSelectdocDoctor.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(deleteSelectdocDoctor.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.isSuccess = true;
+                state.deletedSelectdocDoctor = action.payload;
+                if (state.isSuccess) {
+                    toast.success("Delete a Doctor From Booking!")
+                }
+
+            })
+            .addCase(deleteSelectdocDoctor.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.isSuccess = false;
+                state.message = action.error;
+                if (state.isSuccess === false) {
+                    toast.error("Something Went Wrong!")
+                }
             });
     },
 });

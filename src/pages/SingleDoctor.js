@@ -140,9 +140,7 @@ const SingleDoctor = () => {
                                         </>
                                     }
                                     <div className={alreadyAdded ? "ms-0" : "ms-5" + "d-flex align-items-center gap-30 ms-5"}>
-                                        <Link to="/doctor" className="button text-white">
-                                            Cancel
-                                        </Link>
+                                        
                                         <button
                                             className="button border-0"
                                             type="button"
