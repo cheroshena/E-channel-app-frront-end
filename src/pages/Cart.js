@@ -42,6 +42,7 @@ const Cart = () => {
 
         }
     }, [userCartState])
+    
     return (
         <>
             <Meta title={"Cart"} />

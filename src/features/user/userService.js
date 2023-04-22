@@ -85,6 +85,14 @@ const removeDoctorFromSelectdoc = async (selectdocItemId) => {
     }
 }
 
+//payment
+const createOrder = async (orderDetail)=>{
+    const response = await axios.post(`${base_url}user/cart/create-order`,orderDetail, config);
+    if (response.data) {
+        return response.data;
+    }
+}
+
 
 
 
@@ -99,4 +107,5 @@ export const authService = {
     addToSelectdoc,
     getSelectdoc,
     removeDoctorFromSelectdoc,
+    createOrder,
 }
