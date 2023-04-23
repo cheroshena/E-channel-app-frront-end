@@ -32,7 +32,7 @@ export const SingleProduct = () => {
     const dispatch = useDispatch();
 
     const productState = useSelector(state => state?.product?.singleproduct)
-    const cartState = useSelector(state => state.auth.cartProducts)
+    const cartState = useSelector(state => state?.auth?.cartProducts)
     console.log(productState);
 
     useEffect(() => {
