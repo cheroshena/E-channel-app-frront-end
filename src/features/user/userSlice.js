@@ -92,10 +92,19 @@ export const deleteSelectdocDoctor = createAsyncThunk("user/selectdoc/doctor/del
     }
 });
 
-//
+//Create An order
 export const createAnOrder = createAsyncThunk("user/cart/create-order", async (orderDetail, thunkAPI) => {
     try {
         return await authService.createOrder(orderDetail);
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+});
+
+//Create An channel
+export const createAChannel = createAsyncThunk("user/selectdoc/create-channel", async (orderDetail, thunkAPI) => {
+    try {
+        return await authService.createChannel(orderDetail)
     } catch (error) {
         return thunkAPI.rejectWithValue(error);
     }
@@ -327,6 +336,28 @@ export const authSlice = createSlice({
 
             })
             .addCase(createAnOrder.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.isSuccess = false;
+                state.message = action.error;
+                if (state.isSuccess === false) {
+                    toast.error("Something Went Wrong!")
+                }
+            })
+            .addCase(createAChannel.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(createAChannel.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.isSuccess = true;
+                state.orderedDoctor = action.payload;
+                if (state.isSuccess) {
+                    toast.success("Channel Successfully Done !")
+                }
+
+            })
+            .addCase(createAChannel.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;

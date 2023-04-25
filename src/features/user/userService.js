@@ -93,6 +93,14 @@ const createOrder = async (orderDetail)=>{
     }
 }
 
+//payment
+const createChannel = async (orderDetail)=>{
+    const response = await axios.post(`${base_url}user/channel/create-channel`,orderDetail, config);
+    if (response.data) {
+        return response.data;
+    }
+}
+
 
 
 
@@ -108,4 +116,5 @@ export const authService = {
     getSelectdoc,
     removeDoctorFromSelectdoc,
     createOrder,
+    createChannel
 }
