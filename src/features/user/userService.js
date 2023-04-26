@@ -101,6 +101,21 @@ const createChannel = async (orderDetail)=>{
     }
 }
 
+//get own users orders
+const getUserOrders = async()=>{
+    const response = await axios.get(`${base_url}user/getmyorders`, config)
+    if(response.data){
+        return response.data
+    }
+}
+
+//get own users channels
+const getUserChannels = async()=>{
+    const response = await axios.get(`${base_url}user/getmychannels`, config)
+    if(response.data){
+        return response.data
+    }
+}
 
 
 
@@ -116,5 +131,7 @@ export const authService = {
     getSelectdoc,
     removeDoctorFromSelectdoc,
     createOrder,
-    createChannel
+    createChannel,
+    getUserOrders,
+    getUserChannels,
 }

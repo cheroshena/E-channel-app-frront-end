@@ -110,6 +110,24 @@ export const createAChannel = createAsyncThunk("user/selectdoc/create-channel", 
     }
 });
 
+//Get User Orders
+export const getOrders = createAsyncThunk("user/order/get", async (thunkAPI) => {
+    try {
+        return await authService.getUserOrders();
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+});
+
+//Get User channels
+export const getChannels = createAsyncThunk("user/channel/get", async (thunkAPI) => {
+    try {
+        return await authService.getUserChannels();
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+});
+
 const getCustomerfromLocalStorage = localStorage.getItem("customer")
     ? JSON.parse(localStorage.getItem("customer"))
     : null;
@@ -365,6 +383,42 @@ export const authSlice = createSlice({
                 if (state.isSuccess === false) {
                     toast.error("Something Went Wrong!")
                 }
+            })
+            .addCase(getOrders.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getOrders.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.isSuccess = true;
+                state.getorderedProduct = action.payload;
+                
+
+            })
+            .addCase(getOrders.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.isSuccess = false;
+                state.message = action.error;
+                
+            })
+            .addCase(getChannels.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getChannels.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.isSuccess = true;
+                state.getchanneledDoctor = action.payload;
+                
+
+            })
+            .addCase(getChannels.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.isSuccess = false;
+                state.message = action.error;
+                
             });
     },
 });

@@ -27,6 +27,8 @@ import Book from './pages/Book';
 import Checkoutdoc from './pages/Checkoutdoc';
 import { PrivateRoutes } from './routing/PrivateRoutes';
 import { OpenRoutes } from './routing/OpenRoutes';
+import Orders from './pages/Orders';
+import Channels from './pages/Channels';
 
 
 function App() {
@@ -54,7 +56,9 @@ function App() {
           <Route path='shipping-policy' element={<ShippingPolicy />} />
           <Route path='term-conditions' element={<TermAndCondition />} />
           <Route path='cart' element={<PrivateRoutes><Cart /></PrivateRoutes>} />
+          <Route path='my-orders' element={<PrivateRoutes><Orders /></PrivateRoutes>} />
           <Route path='book' element={<PrivateRoutes><Book /></PrivateRoutes>} />
+          <Route path='my-channels' element={<PrivateRoutes><Channels /></PrivateRoutes>} />
           <Route path='checkout' element={<PrivateRoutes><Checkout /></PrivateRoutes>} />
           <Route path='checkoutdoc' element={<PrivateRoutes><Checkoutdoc /></PrivateRoutes>} />
 
