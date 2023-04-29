@@ -29,6 +29,7 @@ import { PrivateRoutes } from './routing/PrivateRoutes';
 import { OpenRoutes } from './routing/OpenRoutes';
 import Orders from './pages/Orders';
 import Channels from './pages/Channels';
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           <Route path='term-conditions' element={<TermAndCondition />} />
           <Route path='cart' element={<PrivateRoutes><Cart /></PrivateRoutes>} />
           <Route path='my-orders' element={<PrivateRoutes><Orders /></PrivateRoutes>} />
+          <Route path='my-profile' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
           <Route path='book' element={<PrivateRoutes><Book /></PrivateRoutes>} />
           <Route path='my-channels' element={<PrivateRoutes><Channels /></PrivateRoutes>} />
           <Route path='checkout' element={<PrivateRoutes><Checkout /></PrivateRoutes>} />

@@ -33,7 +33,7 @@ const addToCart = async (cartData) => {
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //User get own cart
 const getCart = async () => {
@@ -41,7 +41,7 @@ const getCart = async () => {
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //User remove item own cart
 const removeProductFromCart = async (cartItemId) => {
@@ -49,7 +49,7 @@ const removeProductFromCart = async (cartItemId) => {
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //User update quantity
 const updateProductFromCart = async (cartDetail) => {
@@ -58,7 +58,7 @@ const updateProductFromCart = async (cartDetail) => {
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //User Add to Doctor to 
 const addToSelectdoc = async (selectdocData) => {
@@ -66,7 +66,7 @@ const addToSelectdoc = async (selectdocData) => {
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //get user add doctor for channel page
 const getSelectdoc = async () => {
@@ -74,7 +74,7 @@ const getSelectdoc = async () => {
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //User remove item own Doctor Booking
 const removeDoctorFromSelectdoc = async (selectdocItemId) => {
@@ -83,41 +83,47 @@ const removeDoctorFromSelectdoc = async (selectdocItemId) => {
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //payment
-const createOrder = async (orderDetail)=>{
-    const response = await axios.post(`${base_url}user/cart/create-order`,orderDetail, config);
+const createOrder = async (orderDetail) => {
+    const response = await axios.post(`${base_url}user/cart/create-order`, orderDetail, config);
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //payment
-const createChannel = async (orderDetail)=>{
-    const response = await axios.post(`${base_url}user/channel/create-channel`,orderDetail, config);
+const createChannel = async (orderDetail) => {
+    const response = await axios.post(`${base_url}user/channel/create-channel`, orderDetail, config);
     if (response.data) {
         return response.data;
     }
-}
+};
 
 //get own users orders
-const getUserOrders = async()=>{
+const getUserOrders = async () => {
     const response = await axios.get(`${base_url}user/getmyorders`, config)
-    if(response.data){
+    if (response.data) {
         return response.data
     }
-}
+};
 
 //get own users channels
-const getUserChannels = async()=>{
+const getUserChannels = async () => {
     const response = await axios.get(`${base_url}user/getmychannels`, config)
-    if(response.data){
+    if (response.data) {
+        return response.data
+    }
+};
+
+//Update User Profile
+const UpdateUser = async (data) => {
+    const response = await axios.put(`${base_url}user/edit-user`, data, config)
+    if (response.data) {
         return response.data
     }
 }
-
-
 
 export const authService = {
     register,
@@ -134,4 +140,5 @@ export const authService = {
     createChannel,
     getUserOrders,
     getUserChannels,
+    UpdateUser,
 }

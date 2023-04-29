@@ -22,6 +22,12 @@ const Header = () => {
       setTotal(sum)
     }
   }, [cartState])
+
+  const handleLogout =() =>{
+    localStorage.clear()
+    window.location.reload()
+  }
+
   return (
     <>
       <header className="header-top-strip py-3" >
@@ -82,7 +88,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link to={authState?.user ===null ? "/login" : "" } className="d-flex align-items-center gap-10 text-white">
+                  <Link to={authState?.user ===null ? "/login" : "/my-profile" } className="d-flex align-items-center gap-10 text-white">
                     <img src={user} alt="" />
                     {
                       authState?.user ===null ? <p className="mb-0"> 
@@ -138,6 +144,7 @@ const Header = () => {
                     <NavLink to="/my-channels"> My Channels</NavLink>
                     <NavLink to="/my-orders">My Orders</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
+                    <button onClick={handleLogout} className="border border-0 bg-transparent text-white text-uppercase" type='button' > Logout </button>
                     
                   </div>
                 </div>
