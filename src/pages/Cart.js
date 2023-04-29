@@ -92,7 +92,7 @@ const Cart = () => {
                                             </div>
                                         </div>
                                         <div className="cart-col-4">
-                                            <h5 className="price">$ {item?.quantity * item?.productId.price}</h5>
+                                            <h5 className="price">Rs. {item?.quantity * item?.productId.price}</h5>
                                         </div>
                                     </div>)
                             })
