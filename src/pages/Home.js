@@ -144,7 +144,7 @@ const Home = () => {
           </div>
         </div>
       </Container>
-      <Container class1="home-wrapper-2 py-5">
+      {/*  <Container class1="home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
             <div className="categories d-flex justify-content-between align-items-center">
@@ -180,7 +180,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
       <Container class1="featured-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
@@ -225,7 +225,7 @@ const Home = () => {
                             <img src={prodcompare} alt="compare" />
                           </button >
                           <button className="border-0 bg-transparent">
-                            <img onClick={()=>navigate("/product/" + item?._id)} src={view} alt="view" />
+                            <img onClick={() => navigate("/product/" + item?._id)} src={view} alt="view" />
                           </button >
                           <button className="border-0 bg-transparent">
                             <img src={addcart} alt="add cart" />
@@ -293,7 +293,7 @@ const Home = () => {
                   <div
                     key={index}
                     className="col-3">
-                    <div 
+                    <div
                       className="product-card position-relative">
                       <div className="wishlist-icon position-absolute">
                         <button className="border-0 bg-transparent" onClick={() => { addToWish(item?._id) }}><img src={wish} alt="product image" /></button>
@@ -323,7 +323,7 @@ const Home = () => {
                             <img src={prodcompare} alt="compare" />
                           </button >
                           <button className="border-0 bg-transparent">
-                            <img onClick={()=>navigate("/product/" + item?._id)} src={view} alt="view" />
+                            <img onClick={() => navigate("/product/" + item?._id)} src={view} alt="view" />
                           </button >
                           <button className="border-0 bg-transparent">
                             <img src={addcart} alt="add cart" />
