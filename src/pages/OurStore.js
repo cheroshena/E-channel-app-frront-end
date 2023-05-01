@@ -10,15 +10,21 @@ import { getAllProducts } from '../features/products/productSlice';
 
 const OurStore = () => {
     const [grid, setGrid] = useState(4);
-    const productState=useSelector((state) => state?.product?.product);
-    
+    const productState = useSelector((state) => state?.product?.product);
+
+
+
     const dispatch = useDispatch();
-    useEffect(()=>{
+
+    useEffect(() => {
         getProducts();
-    },[]);
+    }, []);
+
     const getProducts = () => {
         dispatch(getAllProducts())
     };
+
+
     return (
         <>
             <Meta title={"Our Store"} />
@@ -240,7 +246,7 @@ const OurStore = () => {
                         </div>
                         <div className="products-list pb-5">
                             <div className="d-flex gap-10 flex-wrap">
-                                <ProductCard data={productState?productState:[]} grid={grid} />
+                                <ProductCard data={productState ? productState : []} grid={grid} />
 
                             </div>
                         </div>

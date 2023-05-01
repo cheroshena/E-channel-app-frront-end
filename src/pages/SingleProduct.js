@@ -12,7 +12,7 @@ import { MdContentCopy } from "react-icons/md";
 import Container from '../components/Container';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAProduct } from '../features/products/productSlice';
+import { addRating, getAProduct, getAllProducts } from '../features/products/productSlice';
 import { toast } from 'react-toastify';
 import { addProdToCart, getUserCart } from '../features/user/userSlice';
 
@@ -32,12 +32,14 @@ export const SingleProduct = () => {
     const dispatch = useDispatch();
 
     const productState = useSelector(state => state?.product?.singleproduct)
+    const productsState = useSelector(state => state?.product?.product)
     const cartState = useSelector(state => state?.auth?.cartProducts)
-    console.log(productState);
+    
 
     useEffect(() => {
         dispatch(getAProduct(getProductId))
         dispatch(getUserCart())
+        dispatch(getAllProducts())
     }, [])
 
     useEffect(() => {
@@ -66,6 +68,40 @@ export const SingleProduct = () => {
         document.execCommand("copy");
         textField.remove();
     };
+
+     const [popularProduct, setPopularProduct] = useState([])
+     useEffect(() => {
+        let data=[]
+         for (let index = 0; index < productsState?.length; index++) {
+             const element = productsState[index];
+             if(element?.tags==='popular'){
+                data.push(element)
+             }
+            setPopularProduct(data)
+         }
+
+     },[productState])
+
+     const [star,setStar] = useState(null)
+     const [comment,setComment] = useState(null)
+
+     const addRatingToProduct = ()=>{
+        if(star === null){
+            toast.error("Please add star Rating")
+            return false
+        }else if(comment === null ) {
+            toast.error("Please Write a Comment")
+            return false
+        }else{
+            dispatch(addRating({star:star,comment:comment,prodId:getProductId}))
+            setTimeout(()=>{
+                dispatch(getAProduct(getProductId))
+            },600)
+        }
+        return false
+
+     }
+
     return (
         <>
             <Meta title={"Product Name"} />
@@ -226,7 +262,7 @@ export const SingleProduct = () => {
                             </div>
                             <div className="review-form py-4">
                                 <h4>Write a Your Review</h4>
-                                <form action="" className="d-flex flex-column gap-15">
+
                                     <div>
                                         <ReactStars
                                             count={5}
@@ -234,6 +270,9 @@ export const SingleProduct = () => {
                                             value={4}
                                             edit={true}
                                             activeColor="#ffd700"
+                                            onChange={(e)=>{
+                                                setStar(e)
+                                            }}
                                         />
                                     </div>
                                     <div>
@@ -244,52 +283,40 @@ export const SingleProduct = () => {
                                             cols="30"
                                             rows="4"
                                             placeholder="Comments"
+                                            onChange={(e)=>{
+                                                setComment(e.target.value)
+                                            }}
                                         ></textarea>
                                     </div>
-                                    <div className="d-flex justify-content-end">
-                                        <button className="button border-0">Submit Review</button>
+                                    <div className="d-flex justify-content-end mt-3">
+                                        <button onClick={addRatingToProduct} className="button border-0" type="button">Submit Review</button>
                                     </div>
-                                </form>
+
                             </div>
                             <div className="reviews mt-4">
-                                <div className="review ">
-                                    <div className="d-flex gap-10 align-items-center">
-                                        <h6 className="mb-0">Cheroshena</h6>
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            activeColor="#ffd700"
-                                        />
+                               {
+                                productState && productState?.ratings?.map((item,index)=>{
+                                    return(
+                                        <div key={index} className="review ">
+                                        <div className="d-flex gap-10 align-items-center">
+                                            
+                                            <ReactStars
+                                                count={5}
+                                                size={24}
+                                                value={item?.star}
+                                                edit={false}
+                                                activeColor="#ffd700"
+                                                
+                                            />
+                                        </div>
+                                        <p className="mt-3">
+                                           {item?.comment}
+                                        </p>
                                     </div>
-                                    <p className="mt-3">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Consectetur fugit ut excepturi quos. Id reprehenderit
-                                        voluptatem placeat consequatur suscipit ex. Accusamus dolore
-                                        quisquam deserunt voluptate, sit magni perspiciatis quas
-                                        iste?
-                                    </p>
-                                </div>
-                                <div className="review">
-                                    <div className="d-flex gap-10 align-items-center">
-                                        <h6 className="mb-0">L.Fernando</h6>
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            activeColor="#ffd700"
-                                        />
-                                    </div>
-                                    <p className="mt-3">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Consectetur fugit ut excepturi quos. Id reprehenderit
-                                        voluptatem placeat consequatur suscipit ex. Accusamus dolore
-                                        quisquam deserunt voluptate, sit magni perspiciatis quas
-                                        iste?
-                                    </p>
-                                </div>
+                                    )
+                                })
+                               }
+                                
                             </div>
                         </div>
                     </div>
@@ -304,7 +331,7 @@ export const SingleProduct = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <ProductCard />
+                    <ProductCard data={popularProduct} />
                 </div>
             </Container>
         </>
