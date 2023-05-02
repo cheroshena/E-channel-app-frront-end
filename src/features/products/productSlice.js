@@ -4,9 +4,9 @@ import { productService } from "./productService";
 
 
 //get all Products
-export const getAllProducts = createAsyncThunk("product/get", async (thunkAPI) => {
+export const getAllProducts = createAsyncThunk("product/get", async (data,thunkAPI) => {
     try {
-        return await productService.getProducts();
+        return await productService.getProducts(data);
     } catch (error) {
         return thunkAPI.rejectWithValue(error)
     }
