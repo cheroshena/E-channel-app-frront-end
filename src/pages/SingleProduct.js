@@ -34,7 +34,7 @@ export const SingleProduct = () => {
     const productState = useSelector(state => state?.product?.singleproduct)
     const productsState = useSelector(state => state?.product?.product)
     const cartState = useSelector(state => state?.auth?.cartProducts)
-    
+
 
     useEffect(() => {
         dispatch(getAProduct(getProductId))
@@ -69,38 +69,38 @@ export const SingleProduct = () => {
         textField.remove();
     };
 
-     const [popularProduct, setPopularProduct] = useState([])
-     useEffect(() => {
-        let data=[]
-         for (let index = 0; index < productsState?.length; index++) {
-             const element = productsState[index];
-             if(element?.tags==='popular'){
+    const [popularProduct, setPopularProduct] = useState([])
+    useEffect(() => {
+        let data = []
+        for (let index = 0; index < productsState?.length; index++) {
+            const element = productsState[index];
+            if (element?.tags === 'popular') {
                 data.push(element)
-             }
+            }
             setPopularProduct(data)
-         }
+        }
 
-     },[productState])
+    }, [productState])
 
-     const [star,setStar] = useState(null)
-     const [comment,setComment] = useState(null)
+    const [star, setStar] = useState(null)
+    const [comment, setComment] = useState(null)
 
-     const addRatingToProduct = ()=>{
-        if(star === null){
+    const addRatingToProduct = () => {
+        if (star === null) {
             toast.error("Please add star Rating")
             return false
-        }else if(comment === null ) {
+        } else if (comment === null) {
             toast.error("Please Write a Comment")
             return false
-        }else{
-            dispatch(addRating({star:star,comment:comment,prodId:getProductId}))
-            setTimeout(()=>{
+        } else {
+            dispatch(addRating({ star: star, comment: comment, prodId: getProductId }))
+            //setTimeout(() => {
                 dispatch(getAProduct(getProductId))
-            },600)
+            //}, 600)
         }
         return false
 
-     }
+    }
 
     return (
         <>
@@ -263,60 +263,60 @@ export const SingleProduct = () => {
                             <div className="review-form py-4">
                                 <h4>Write a Your Review</h4>
 
-                                    <div>
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={true}
-                                            activeColor="#ffd700"
-                                            onChange={(e)=>{
-                                                setStar(e)
-                                            }}
-                                        />
-                                    </div>
-                                    <div>
-                                        <textarea
-                                            name=""
-                                            id=""
-                                            className="w-100 form-control"
-                                            cols="30"
-                                            rows="4"
-                                            placeholder="Comments"
-                                            onChange={(e)=>{
-                                                setComment(e.target.value)
-                                            }}
-                                        ></textarea>
-                                    </div>
-                                    <div className="d-flex justify-content-end mt-3">
-                                        <button onClick={addRatingToProduct} className="button border-0" type="button">Submit Review</button>
-                                    </div>
+                                <div>
+                                    <ReactStars
+                                        count={5}
+                                        size={24}
+                                        value={4}
+                                        edit={true}
+                                        activeColor="#ffd700"
+                                        onChange={(e) => {
+                                            setStar(e)
+                                        }}
+                                    />
+                                </div>
+                                <div>
+                                    <textarea
+                                        name=""
+                                        id=""
+                                        className="w-100 form-control"
+                                        cols="30"
+                                        rows="4"
+                                        placeholder="Comments"
+                                        onChange={(e) => {
+                                            setComment(e.target.value)
+                                        }}
+                                    ></textarea>
+                                </div>
+                                <div className="d-flex justify-content-end mt-3">
+                                    <button onClick={addRatingToProduct} className="button border-0" type="button">Submit Review</button>
+                                </div>
 
                             </div>
                             <div className="reviews mt-4">
-                               {
-                                productState && productState?.ratings?.map((item,index)=>{
-                                    return(
-                                        <div key={index} className="review ">
-                                        <div className="d-flex gap-10 align-items-center">
-                                            
-                                            <ReactStars
-                                                count={5}
-                                                size={24}
-                                                value={item?.star}
-                                                edit={false}
-                                                activeColor="#ffd700"
-                                                
-                                            />
-                                        </div>
-                                        <p className="mt-3">
-                                           {item?.comment}
-                                        </p>
-                                    </div>
-                                    )
-                                })
-                               }
-                                
+                                {
+                                    productState && productState?.ratings?.map((item, index) => {
+                                        return (
+                                            <div key={index} className="review ">
+                                                <div className="d-flex gap-10 align-items-center">
+
+                                                    <ReactStars
+                                                        count={5}
+                                                        size={24}
+                                                        value={item?.star}
+                                                        edit={false}
+                                                        activeColor="#ffd700"
+
+                                                    />
+                                                </div>
+                                                <p className="mt-3">
+                                                    {item?.comment}
+                                                </p>
+                                            </div>
+                                        )
+                                    })
+                                }
+
                             </div>
                         </div>
                     </div>

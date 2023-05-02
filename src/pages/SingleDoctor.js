@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Container from '../components/Container';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { getADoctor } from '../features/doctors/doctorSlice';
+import { addRating, getADoctor } from '../features/doctors/doctorSlice';
 import { toast } from 'react-toastify';
 import { addProdToSelectdoc, getUserSelectdoc } from '../features/user/userSlice';
 
@@ -44,7 +44,7 @@ const SingleDoctor = () => {
 
     const uploadSelectdoc = () => {
         dispatch(addProdToSelectdoc({ doctorId: doctorState?._id, quantity }))
-        navigate ('/book')
+        navigate('/book')
     }
 
     const [orderedProduct, setorderedProduct] = useState(true);
@@ -57,6 +57,26 @@ const SingleDoctor = () => {
         document.execCommand("copy");
         textField.remove();
     };
+    const [star, setStar] = useState(null)
+    const [comment, setComment] = useState(null)
+
+    const addRatingToDoctor = () => {
+        if (star === null) {
+            toast.error("Please add star Rating")
+            return false
+        } else if (comment === null) {
+            toast.error("Please Write a Comment")
+            return false
+        } else {
+            dispatch(addRating({ star: star, comment: comment, docId: getDoctorId }))
+            
+            dispatch(getADoctor(getDoctorId))
+        
+        }
+        return false
+
+    }
+
     return (
         <>
             <Meta title={"Doctor Name"} />
@@ -140,11 +160,11 @@ const SingleDoctor = () => {
                                         </>
                                     }
                                     <div className={alreadyAdded ? "ms-0" : "ms-5" + "d-flex align-items-center gap-30 ms-5"}>
-                                        
+
                                         <button
                                             className="button border-0"
                                             type="button"
-                                            onClick={() => { alreadyAdded? navigate ('/book'): uploadSelectdoc() }}
+                                            onClick={() => { alreadyAdded ? navigate('/book') : uploadSelectdoc() }}
                                         >
                                             {alreadyAdded ? "Go to Booking" : "Add to Booking"}
                                         </button>
@@ -213,7 +233,7 @@ const SingleDoctor = () => {
                             </div>
                             <div className="review-form py-4">
                                 <h4>Write a Your Review</h4>
-                                <form action="" className="d-flex flex-column gap-15">
+                                
                                     <div>
                                         <ReactStars
                                             count={5}
@@ -221,6 +241,9 @@ const SingleDoctor = () => {
                                             value={4}
                                             edit={true}
                                             activeColor="#ffd700"
+                                            onChange={(e) => {
+                                                setStar(e)
+                                            }}
                                         />
                                     </div>
                                     <div>
@@ -231,69 +254,47 @@ const SingleDoctor = () => {
                                             cols="30"
                                             rows="4"
                                             placeholder="Comments"
+                                            onChange={(e) => {
+                                                setComment(e.target.value)
+                                            }}
                                         ></textarea>
                                     </div>
-                                    <div className="d-flex justify-content-end">
-                                        <button className="button border-0">Submit Review</button>
+                                    <div className="d-flex justify-content-end mt-3">
+                                        <button type="button" onClick={addRatingToDoctor} className="button border-0">Submit Review</button>
                                     </div>
-                                </form>
+                                
                             </div>
                             <div className="reviews mt-4">
-                                <div className="review ">
-                                    <div className="d-flex gap-10 align-items-center">
-                                        <h6 className="mb-0">Cheroshena</h6>
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            activeColor="#ffd700"
-                                        />
-                                    </div>
-                                    <p className="mt-3">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Consectetur fugit ut excepturi quos. Id reprehenderit
-                                        voluptatem placeat consequatur suscipit ex. Accusamus dolore
-                                        quisquam deserunt voluptate, sit magni perspiciatis quas
-                                        iste?
-                                    </p>
-                                </div>
-                                <div className="review">
-                                    <div className="d-flex gap-10 align-items-center">
-                                        <h6 className="mb-0">L.Fernando</h6>
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            activeColor="#ffd700"
-                                        />
-                                    </div>
-                                    <p className="mt-3">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Consectetur fugit ut excepturi quos. Id reprehenderit
-                                        voluptatem placeat consequatur suscipit ex. Accusamus dolore
-                                        quisquam deserunt voluptate, sit magni perspiciatis quas
-                                        iste?
-                                    </p>
-                                </div>
+                            {
+                                    doctorState && doctorState?.docratings?.map((item, index) => {
+                                        return (
+                                            <div key={index} className="review ">
+                                                <div className="d-flex gap-10 align-items-center">
+
+                                                    <ReactStars
+                                                        count={5}
+                                                        size={24}
+                                                        value={item?.star}
+                                                        edit={false}
+                                                        activeColor="#ffd700"
+
+                                                    />
+                                                </div>
+                                                <p className="mt-3">
+                                                    {item?.comment}
+                                                </p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                                
                             </div>
                         </div>
                     </div>
                 </div>
 
             </Container>
-            <Container class1="popular-wrapper py-5 home-wrapper-2">
-
-                <div className="row">
-                    <div className="col-12">
-                        <h3 className="section-heading">Our Popular Products</h3>
-                    </div>
-                </div>
-                <div className="row">
-                    <DoctorCard />
-                </div>
-            </Container>
+            
         </>
     )
 }

@@ -17,7 +17,16 @@ const getSingleDoctor = async (id) => {
     }
 };
 
+//Rating Doctor
+const rateDoctor = async (data) => {
+    const response = await axios.put(`${base_url}doctor/rating`, data, config);
+    if (response.data) {
+        return response.data;
+    }
+};
+
 export const doctorService = {
     getDoctors,
     getSingleDoctor,
+    rateDoctor,
 }
