@@ -10,7 +10,7 @@ import { deleteSelectdocDoctor, getUserSelectdoc } from '../features/user/userSl
 
 const Book = () => {
     const dispatch = useDispatch();
-    const userSelectdocState = useSelector(state => state.auth.selectdocDoctors)
+    const userSelectdocState = useSelector(state => state?.auth?.selectdocDoctors)
     useEffect(() => {
         dispatch(getUserSelectdoc())
     }, [])
@@ -45,13 +45,13 @@ const Book = () => {
                                             </div>
                                             <div className="w-75">
 
-                                                <p>Doctor Name : {item?.doctorId.name}</p>
-                                                <p>Med.Id : {item?.doctorId.regno}</p>
-                                                <p>Gender : {item?.doctorId.gender}</p>
+                                                <p>Doctor Name : {item?.doctorId?.name}</p>
+                                                <p>Med.Id : {item?.doctorId?.regno}</p>
+                                                <p>Gender : {item?.doctorId?.gender}</p>
                                             </div>
                                         </div>
                                         <div className="cart-col-2">
-                                            <h5 className="price">{item?.doctorId.specialize}</h5>
+                                            <h5 className="price">{item?.doctorId?.specialize}</h5>
                                         </div>
                                         <div className="cart-col-4">
                                             

@@ -15,6 +15,13 @@ import prodcompare from "../images/prodcompare.svg";
 import wish from "../images/wish.svg";
 import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
+import video01 from "../images/video01.mp4"
+import video02 from "../images/video02.mp4"
+import video03 from "../images/video03.mp4"
+import video04 from "../images/video04.mp4"
+import video05 from "../images/video05.mp4"
+import video06 from "../images/video06.mp4"
+
 
 const Home = () => {
 
@@ -43,29 +50,31 @@ const Home = () => {
 
   return (
     <>
+      
       <Container class1="home-wrapper-1 py-5">
         <div className="row">
           <div className="col-6">
             <div className="main-banner  position-relative">
-              <img
-                src="images/main-banner-1.jpg"
+              <video
+                autoPlay
+                muted
+                loop
+                src={video05}
                 className="img-fluid rounded-3"
                 alt="main banner"
               />
-              <div className="main-banner-content position-absolute">
-                <h4>SUPERCHARGED FOR PROS.</h4>
-                <h5>Solo Healthcare <br /> Pack</h5>
-                <p>From Rs.1999.00 or Rs.41.62/mo.</p>
-                <Link className="button">Buy Now</Link>
-              </div>
+
 
             </div>
           </div>
           <div className="col-6">
             <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center">
               <div className="small-banner  position-relative">
-                <img
-                  src="images/catbanner-01.jpg"
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  src={video01}
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
@@ -73,13 +82,16 @@ const Home = () => {
                   <h4>SUPERCHARGED FOR PROS.</h4>
                   <h5>Solo Healthcare <br /> Pack</h5>
 
-                  <Link className="small-button">View</Link>
+
                 </div>
 
               </div>
               <div className="small-banner  position-relative">
-                <img
-                  src="images/catbanner-02.jpg"
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  src={video03}
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
@@ -87,27 +99,33 @@ const Home = () => {
                   <h4>New Arrival.</h4>
                   <h5>Solo Healthcare <br /> Pack</h5>
 
-                  <Link className="small-button">View</Link>
+
                 </div>
 
               </div>
               <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-03.jpg"
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  src={video04}
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
-                <div className="small-banner-content position-absolute">
+                <div className="small-banner-content position-absolute text-white">
                   <h4>New Arrival.</h4>
                   <h5>Solo Healthcare <br /> Pack</h5>
 
-                  <Link className="small-button">View</Link>
+
                 </div>
 
               </div>
               <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-04.jpg"
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  src={video06}
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
@@ -115,7 +133,7 @@ const Home = () => {
                   <h4>New Arrival.</h4>
                   <h5>Solo Healthcare <br /> Pack</h5>
 
-                  <Link className="small-button">View</Link>
+
                 </div>
 
               </div>
@@ -125,6 +143,7 @@ const Home = () => {
           </div>
         </div>
       </Container>
+      
       <Container class1="home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
@@ -343,13 +362,13 @@ const Home = () => {
         </div>
 
       </Container>
-      <Container class1="marque-wrapper home-wrapper-2 py-5 ">
+      <Container class1="marque-wrapper home-wrapper-2 py-6 ">
 
         <div className="row">
           <div className="col-12">
-            <div className="brand-slide marquee-inner-wrapper card-wrapper">
+            <div className="brand-slide marquee-inner-wrapper card-wrapper ">
               <Marquee className="d-flex">
-                <div className="mx-4 w-25">
+                <div className="mx-4 w-25 ">
                   <img src="images/brand-01.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
@@ -372,6 +391,9 @@ const Home = () => {
                 </div>
                 <div className="mx-4 w-35">
                   <img src="images/brand-08.png" alt="brand" />
+                </div>
+                <div className="mx-4 w-35">
+                  <img src="images/brand-09.png" alt="brand" />
                 </div>
               </Marquee>
             </div>

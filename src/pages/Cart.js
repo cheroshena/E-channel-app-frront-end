@@ -63,16 +63,16 @@ const Cart = () => {
                                     <div key={index} className="cart-data py-3 mb-2 d-flex justify-content-between align-items-center">
                                         <div className="cart-col-1 gap-15 d-flex align-items-center">
                                             <div className="w-25">
-                                                <img src={item?.productId.images[0]?.url} className="img-fluid" alt="product image" />
+                                                <img src={item?.productId?.images[0]?.url} className="img-fluid" alt="product image" />
                                             </div>
                                             <div className="w-75">
-                                                <p>{item?.productId.title}</p>
-                                                <p>Category: {item?.productId.category}</p>
-                                                <p>Brand: {item?.productId.brand}</p>
+                                                <p>{item?.productId?.title}</p>
+                                                <p>Category: {item?.productId?.category}</p>
+                                                <p>Brand: {item?.productId?.brand}</p>
                                             </div>
                                         </div>
                                         <div className="cart-col-2">
-                                            <h5 className="price">Rs. {item?.productId.price}</h5>
+                                            <h5 className="price">Rs. {item?.productId?.price}</h5>
                                         </div>
                                         <div className="cart-col-3 d-flex align-items-center gap-15">
                                             <div>
@@ -92,7 +92,7 @@ const Cart = () => {
                                             </div>
                                         </div>
                                         <div className="cart-col-4">
-                                            <h5 className="price">Rs. {item?.quantity * item?.productId.price}</h5>
+                                            <h5 className="price">Rs. {item?.quantity * item?.productId?.price}</h5>
                                         </div>
                                     </div>)
                             })
