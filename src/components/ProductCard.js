@@ -31,7 +31,7 @@ const ProductCard = (props) => {
                                 </div>
                                 <div className="product-image">
                                     <img src={item?.images[0]?.url} className="img-fluid" alt="product image" />
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyZAYlQb_aZIPSbMSTMF33U17v-wFY0YdVwg&usqp=CAU" className="img-fluid " alt="product image" />
+                                    
                                 </div>
                                 <div className="product-details">
                                     <h6 className="brand">{item?.brand}</h6>

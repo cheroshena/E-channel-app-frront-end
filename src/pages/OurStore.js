@@ -149,51 +149,7 @@ console.log(sort);
                                 </div>
                             </div>
                         </div>
-                        <div className="filter-card mb-3">
-                            <h3 className="filter-title">
-                                Random Product
-                            </h3>
-                            <div>
-                                <div className="random-products d-flex mb-3">
-                                    <div className="w-50">
-                                        <img src="https://cdn.shopify.com/s/files/1/0021/0527/8543/products/dynarex-3187-sensi-wrap-self-adherent-latex-free-1-x-5yd-tan-case-of-30_720x.jpg?v=1675702175" className="img-fluid" alt="" />
-                                    </div>
-                                    <div className="w-50">
-                                        <h5> Kids headphones bulk 10 pack multi colored for students</h5>
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            activeColor="#ffd700"
-                                        />
-                                        <b>$ 300</b>
-                                    </div>
-                                </div>
-                                <div className="random-products d-flex mb-3">
-                                    <div className="w-50">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0021/0527/8543/products/pure-msk-black-a-500x500500x500_540x.png?v=1633034486"
-                                            className="img-fluid"
-                                            alt="watch"
-                                        />
-                                    </div>
-                                    <div className="w-50">
-                                        <h5>
-                                            Kids headphones bulk 10 pack multi colored for students
-                                        </h5>
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            activeColor="#ffd700"
-                                        />
-                                        <b>$ 300</b>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div className="col-9">
                         <div className="filter-sort-grid mb-4">
