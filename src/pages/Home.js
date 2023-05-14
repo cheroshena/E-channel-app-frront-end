@@ -97,7 +97,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>New Arrival.</h4>
-                  <h5>Solo Healthcare <br /> Pack</h5>
+                  <h5 className='text-white'>Solo Healthcare <br /> Pack</h5>
 
 
                 </div>
@@ -112,8 +112,8 @@ const Home = () => {
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
-                <div className="small-banner-content position-absolute text-white">
-                  <h4>New Arrival.</h4>
+                <div className="small-banner-content position-absolute ">
+                  <h4 >New Arrival.</h4>
                   <h5>Solo Healthcare <br /> Pack</h5>
 
 
@@ -131,7 +131,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>New Arrival.</h4>
-                  <h5>Solo Healthcare <br /> Pack</h5>
+                  <h5 >Solo Healthcare <br /> Pack</h5>
 
 
                 </div>
