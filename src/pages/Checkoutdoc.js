@@ -313,13 +313,13 @@ const Checkoutdoc = () => {
                         <div className="border-bottom py-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="total">Channeling fee</p>
-                                <p className="total-price">Rs. 250</p>
+                                <p className="total-price">Rs.500</p>
                             </div>
 
                         </div>
                         <div className="d-flex justify-content-between align-items-center border-bootom py-4">
                             <h4 className="total">Total</h4>
-                            <h5 className="total-price">Rs. {totalAmount ? totalAmount + 250 : "0"}</h5>
+                            <h5 className="total-price">Rs.500</h5>
                         </div>
                     </div>
                 </div>

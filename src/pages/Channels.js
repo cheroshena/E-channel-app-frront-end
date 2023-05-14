@@ -47,7 +47,7 @@ const Channels = () => {
                                             <p>ID: {item?._id}</p>
                                         </div>
                                         <div className='col-3'>
-                                            <p>Rs. {item?.totalPrice}</p>
+                                            <p>Rs. 500</p>
                                         </div>
                                         <div className='col-3'>
                                             <p>Check your Channel status</p>
