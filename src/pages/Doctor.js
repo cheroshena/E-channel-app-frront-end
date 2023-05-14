@@ -8,8 +8,8 @@ import { getAllDoctors } from '../features/doctors/doctorSlice';
 
 const Doctor = () => {
   const [grid, setGrid] = useState(4);
-  const doctorState =useSelector((state) => state?.doctor?.doctor)
-  
+  const doctorState = useSelector((state) => state?.doctor?.doctor)
+
   const dispatch = useDispatch();
   useEffect(() => {
     getDoctors();
@@ -42,144 +42,103 @@ const Doctor = () => {
               </div>
             </div>
             <div className="filter-card mb-3">
-              <h3 className="filter-title">Filter By</h3>
+              <h3 className="filter-title">How to Channel Doctor</h3>
               <div>
-                <h5 className="sub-title">Available Doctors</h5>
+                <h5 className="sub-title">Check Specility</h5>
                 <div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id=""
-                    />
+
                     <label className="form-check-label" htmlFor="">
-                      Available (1)
+                      Search what you want
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id=""
-                    />
+
                     <label className="form-check-label" htmlFor="">
-                      Unavailable(0)
+                      Search what you want
                     </label>
                   </div>
                 </div>
 
-                <h5 className="sub-title">Channeling Date</h5>
+                <h5 className="sub-title">Time Duration</h5>
                 <div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="color-1"
-                    />
                     <label className="form-check-label" htmlFor="color-1">
                       Monday
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="color-2"
-                    />
                     <label className="form-check-label" htmlFor="color-2">
                       Tuesday
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="color-2"
-                    />
                     <label className="form-check-label" htmlFor="color-2">
                       Wednesday
                     </label>
                   </div>
+
+                </div>
+                <h5 className="sub-title">Time Duration</h5>
+                <div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="color-2"
-                    />
-                    <label className="form-check-label" htmlFor="color-2">
-                      Thursday
+                    <label className="form-check-label" htmlFor="color-1">
+                      Monday
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="color-2"
-                    />
                     <label className="form-check-label" htmlFor="color-2">
-                      Friday
+                      Tuesday
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="color-2"
-                    />
                     <label className="form-check-label" htmlFor="color-2">
-                      Saturday
+                      Wednesday
                     </label>
                   </div>
+
+                </div>
+                <h5 className="sub-title">Time Duration</h5>
+                <div>
+                  <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-1">
+                      Monday
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-2">
+                      Tuesday
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-2">
+                      Wednesday
+                    </label>
+                  </div>
+
+                </div>
+                <h5 className="sub-title">Time Duration</h5>
+                <div>
+                  <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-1">
+                      Monday
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-2">
+                      Tuesday
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-2">
+                      Wednesday
+                    </label>
+                  </div>
+
                 </div>
               </div>
             </div>
-            <div className="filter-card mb-3">
-              <h3 className="filter-title">
-                Doctor's Tags
-              </h3>
-              <div>
-                <div className="product-tags d-flex flex-wrap align-items-center gap-10">
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Hemas
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Volteren
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    BioPlus
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Sidhdhlepe
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Brandix
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Hemas
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Volteren
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    BioPlus
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Sidhdhlepe
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Brandix
-                  </span>
-                </div>
-              </div>
-            </div>
+            
 
           </div>
           <div className="col-9">
@@ -205,7 +164,7 @@ const Doctor = () => {
             </div>
             <div className="products-list pb-5">
               <div className="d-flex gap-10 flex-wrap">
-                <DoctorCard data={doctorState?doctorState:[]} grid={grid} />
+                <DoctorCard data={doctorState ? doctorState : []} grid={grid} />
 
               </div>
             </div>
