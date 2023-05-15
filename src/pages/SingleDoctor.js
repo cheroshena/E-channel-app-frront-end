@@ -107,7 +107,7 @@ const SingleDoctor = () => {
                                         edit={false}
                                         activeColor="#ffd700"
                                     />
-                                    <p className="mb-0 t-review">( 2 Reviews )</p>
+                                    
                                 </div>
                                 <a className="review-btn" href="#review">
                                     Write a Review
@@ -140,25 +140,8 @@ const SingleDoctor = () => {
                                 </div>
 
                                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
-                                    <h3 className="product-heading">Quantity :</h3>
-                                    {
-                                        alreadyAdded === false &&
-                                        <>
-                                            <div className="">
-                                                <input
-                                                    type="number"
-                                                    name=""
-                                                    min={1}
-                                                    max={10}
-                                                    style={{ "width": "70px" }}
-                                                    className="form-control"
-                                                    id=""
-                                                    onChange={(e) => setQuantity(e.target.value)}
-                                                    value={quantity}
-                                                />
-                                            </div>
-                                        </>
-                                    }
+                                    <h3 className="product-heading"> You can Channeling only "One Patient"</h3>
+                                    
                                     <div className={alreadyAdded ? "ms-0" : "ms-5" + "d-flex align-items-center gap-30 ms-5"}>
 
                                         <button

@@ -74,7 +74,7 @@ const Header = () => {
           <div className="row align-items-center">
             <div className="col-2">
               <h2>
-                <Link to="/" className="text-white">E-Doctor</Link>
+                <Link to="/" className="text-white">MedHub</Link>
               </h2>
             </div>
 

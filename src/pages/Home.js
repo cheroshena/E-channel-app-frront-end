@@ -209,7 +209,7 @@ const Home = () => {
         <div className="row">
           {
             productState && productState?.map((item, index) => {
-              if (item?.tags === "future") {
+              if (item?.tags === "featured") {
                 return (
                   <div
                     key={index}

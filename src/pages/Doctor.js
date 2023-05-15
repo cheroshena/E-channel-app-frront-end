@@ -30,14 +30,15 @@ const Doctor = () => {
               </h3>
               <div className="ps-0">
                 <ul>
-                  <li>Allergists</li>
-                  <li>Anesthesiologists</li>
-                  <li>Cardiologists</li>
-                  <li>Dermatologists</li>
-                  <li>Family Physicians</li>
-                  <li>Medical Geneticists</li>
-                  <li>Obstetricians and Gynecologists</li>
-                  <li>Pediatricians</li>
+                  <li>Internal medicine</li>
+                  <li>Urology</li>
+                  <li>Orthopedics</li>
+                  <li>General surgery</li>
+                  <li>Surgeon</li>
+                  <li>Psychiatry</li>
+                  <li>Family medicine</li>
+                  <li>Cardiology</li>
+                  <li>Radiology</li>
                 </ul>
               </div>
             </div>
