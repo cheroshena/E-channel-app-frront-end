@@ -30,10 +30,12 @@ import { OpenRoutes } from './routing/OpenRoutes';
 import Orders from './pages/Orders';
 import Channels from './pages/Channels';
 import Profile from './pages/Profile';
+import Chat from './components/chat';
 
 
 function App() {
   return <>
+  <Chat/>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>

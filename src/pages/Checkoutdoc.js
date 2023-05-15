@@ -178,7 +178,7 @@ const Checkoutdoc = () => {
                                     </li>
                                     &nbsp; / &nbsp;
                                     <li className="breadcrumb-item total-price active">
-                                        Shipping
+                                        Channeling
                                     </li>
                                     &nbsp; /
                                     <li
@@ -189,11 +189,8 @@ const Checkoutdoc = () => {
                                     </li>
                                 </ol>
                             </nav>
-                            <h4 className="title total">Contact Information</h4>
-                            <p className="user-details total">
-                                Pavithra Cheroshena (cheroshena@gmail.com)
-                            </p>
-                            <h4 className="mb-3">Shipping Address</h4>
+                            
+                            <h4 className="mb-3">Channeling Information</h4>
                             <form onSubmit={formik.handleSubmit}
                                 action=""
                                 className="d-flex gap-15 flex-wrap justify-content-between"
@@ -275,10 +272,10 @@ const Checkoutdoc = () => {
                                     <div className="d-flex justify-content-between align-items-center">
                                         <Link to="/cart" className="text-dark">
                                             <BiArrowBack className="me-2" />
-                                            Return to Cart
+                                            Return to Select Doctor
                                         </Link>
                                         <Link to="/cart" className="button">
-                                            Continue to Shipping
+                                            Continue to Channeling
                                         </Link>
                                         <button className="button border-0" type="submit"  >Channel</button>
                                     </div>
