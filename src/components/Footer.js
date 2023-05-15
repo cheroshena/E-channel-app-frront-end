@@ -75,17 +75,9 @@ const Footer = () => {
             <div className="col-2">
               <h4 className="text-white mb-4">Quick links</h4>
               <div className="footer-link d-flex flex-column">
-                <Link className="text-white py-1 mb-1">Mothers & Baby</Link>
-                <Link className="text-white py-1 mb-1">Diet & Nutrition</Link>
-                <Link className="text-white py-1 mb-1">Beauty Supplements</Link>
-                <Link className="text-white py-1 mb-1">Mothers & Baby</Link>
-                <Link className="text-white py-1 mb-1"> Mothers & Baby </Link>
-                <Link className="text-white py-1 mb-1"> Pet Care</Link>
-                <Link className="text-white py-1 mb-1">Diet & Nutrition</Link>
-                <Link className="text-white py-1 mb-1">Beauty Supplements</Link>
-                <Link className="text-white py-1 mb-1">Mothers & Baby</Link>
-                <Link className="text-white py-1 mb-1"> Mothers & Baby </Link>
-                <Link className="text-white py-1 mb-1"> Pet Care</Link>
+                <Link to="/product" className="text-white py-1 mb-1">Our Store</Link>
+                <Link to="/doctor" className="text-white py-1 mb-1">Doctor Channeling</Link>
+                <Link to="/blog" className="text-white py-1 mb-1">Blogs</Link>
           
               </div>
             </div>

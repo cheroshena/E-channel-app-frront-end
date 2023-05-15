@@ -26,18 +26,13 @@ const Blog = () => {
                     <div className="col-3">
                         <div className="filter-card mb-3">
                             <h3 className="filter-title">
-                                Find By Categories
+                            Weekly articals with insight into the weekend's message.
                             </h3>
                             <div className="ps-0">
+                               
                                 <ul>
-                                    <li>Mothers & Baby 1</li>
-                                    <li>Mothers & Baby 2</li>
-                                    <li>Mothers & Baby 3</li>
-                                    <li>Mothers & Baby 4</li>
-                                    <li>Mothers & Baby 5</li>
-                                    <li>Mothers & Baby 6</li>
-                                    <li>Mothers & Baby 7</li>
-                                    <li>Mothers & Baby 8</li>
+                                    <li>Our blog takes the message from the weekendand lays out next right steps, so you can hear a message and do a message in practical ways.</li>
+                                    
                                 </ul>
                             </div>
                         </div>
