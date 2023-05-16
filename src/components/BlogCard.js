@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import blog from "../images/blog-1.jpg";
+import blog from "../images/blogg.jpg";
+
 
 const BlogCard = (props) => {
     const {id,title,description,date,image}=props;
