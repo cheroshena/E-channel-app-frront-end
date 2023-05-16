@@ -79,8 +79,8 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>SUPERCHARGED FOR PROS.</h4>
-                  <h5>Solo Healthcare <br /> Pack</h5>
+                  <h4>OUR SERVICES</h4>
+                  <h5>Take Multivitamins<br /> Supplies.</h5>
 
 
                 </div>
@@ -96,8 +96,8 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>New Arrival.</h4>
-                  <h5 className='text-white'>Solo Healthcare <br /> Pack</h5>
+                  <h4>OUR DOCTORS</h4>
+                  <h5 className='text-white'>Treat & Communicate  <br />with friendly.</h5>
 
 
                 </div>
@@ -113,8 +113,8 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute ">
-                  <h4 >New Arrival.</h4>
-                  <h5>Solo Healthcare <br /> Pack</h5>
+                  <h4 >OUR EMPLOYEES</h4>
+                  <h5>Be a Life Saveiour<br /> with Good Heart.</h5>
 
 
                 </div>
@@ -130,8 +130,8 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>New Arrival.</h4>
-                  <h5 >Solo Healthcare <br /> Pack</h5>
+                  <h4>OUR VISION</h4>
+                  <h5 >Guide the Patient with<br /> Right way.</h5>
 
 
                 </div>
