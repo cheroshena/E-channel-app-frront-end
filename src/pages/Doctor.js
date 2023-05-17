@@ -45,94 +45,102 @@ const Doctor = () => {
             <div className="filter-card mb-3">
               <h3 className="filter-title">How to Channel Doctor</h3>
               <div>
-                <h5 className="sub-title">Check Specility</h5>
+                <h5 className="sub-title">Step 1</h5>
                 <div>
                   <div className="form-check">
 
                     <label className="form-check-label" htmlFor="">
-                      Search what you want
+                      Search the doctor in search bar
                     </label>
                   </div>
                   <div className="form-check">
 
                     <label className="form-check-label" htmlFor="">
-                      Search what you want
+                      Select doctor from the listing
                     </label>
                   </div>
                 </div>
 
-                <h5 className="sub-title">Time Duration</h5>
+                <h5 className="sub-title">Step 2</h5>
                 <div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-1">
-                      Monday
+                      Refer doctor details and ratings
                     </label>
                   </div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-2">
-                      Tuesday
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <label className="form-check-label" htmlFor="color-2">
-                      Wednesday
+                      For do reservation click "Go to Booking" button
                     </label>
                   </div>
 
                 </div>
-                <h5 className="sub-title">Time Duration</h5>
+                <h5 className="sub-title">Step 3</h5>
                 <div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-1">
-                      Monday
+                      If you want to delete the selected doctot click "Delete" icon
                     </label>
                   </div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-2">
-                      Tuesday
+                      To continue channeling process click "Channel Now"
                     </label>
                   </div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-2">
-                      Wednesday
+                      To go back click "Back to Channeling" button
                     </label>
                   </div>
 
                 </div>
-                <h5 className="sub-title">Time Duration</h5>
+                <h5 className="sub-title">Step 4</h5>
                 <div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-1">
-                      Monday
+                      Fill all the required information fields
                     </label>
                   </div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-2">
-                      Tuesday
+                      To do payments click "Channel"
                     </label>
                   </div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-2">
-                      Wednesday
+                      To go back click "Return to Select Doctor"
                     </label>
                   </div>
 
                 </div>
-                <h5 className="sub-title">Time Duration</h5>
+                <h5 className="sub-title">Step 5</h5>
                 <div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-1">
-                      Monday
+                      Select options for payments
                     </label>
                   </div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-2">
-                      Tuesday
+                      Proceed payment by clicking "Payment"
                     </label>
                   </div>
                   <div className="form-check">
                     <label className="form-check-label" htmlFor="color-2">
-                      Wednesday
+                      If some error occured try again
+                    </label>
+                  </div>
+                  </div>
+                <h5 className="sub-title">Step 6</h5>
+                <div>
+                  <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-1">
+                      You can view your channelings in My Channels page
+                    </label>
+                  </div>
+                   <div className="form-check">
+                    <label className="form-check-label" htmlFor="color-1">
+                      Status will show the Booking Number
                     </label>
                   </div>
 

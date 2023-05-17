@@ -80,7 +80,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>OUR SERVICES</h4>
-                  <h5>Take Multivitamins<br /> Supplies.</h5>
+                  <h6>We will provide you top-notch services that proritize<br />your well-being</h6>
 
 
                 </div>
@@ -97,7 +97,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>OUR DOCTORS</h4>
-                  <h5 className='text-white'>Treat & Communicate  <br />with friendly.</h5>
+                  <h6 className='text-white'>Experience exceptional medical care with <br /> skilled doctors</h6>
 
 
                 </div>
@@ -114,7 +114,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute ">
                   <h4 >OUR EMPLOYEES</h4>
-                  <h5>Be a Life Saveiour<br /> with Good Heart.</h5>
+                  <h6>Our exceptional employees will deliver you a outstanding medical care<br /> </h6>
 
 
                 </div>
@@ -131,7 +131,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>OUR VISION</h4>
-                  <h5 >Guide the Patient with<br /> Right way.</h5>
+                  <h6 >Pioneering a vision of excellence in healthcare <br />  for a bright future.</h6>
 
 
                 </div>
