@@ -79,31 +79,7 @@ console.log(sort);
                         <div className="filter-card mb-3">
                             <h3 className="filter-title">Filter By</h3>
                             <div>
-                                <h5 className="sub-title">Availability</h5>
-                                <div>
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            value=""
-                                            id=""
-                                        />
-                                        <label className="form-check-label" htmlFor="in_stock">
-                                            In Stock (1)
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            value=""
-                                            id=""
-                                        />
-                                        <label className="form-check-label" htmlFor="out_of_stock">
-                                            Out of Stock(0)
-                                        </label>
-                                    </div>
-                                </div>
+                                
                                 <h5 className="sub-title">Price</h5>
                                 <div className="d-flex align-items-center gap-10">
                                     <div className="form-floating">
