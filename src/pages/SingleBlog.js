@@ -4,7 +4,7 @@ import Meta from '../components/Meta';
 
 import { Link, useLocation } from 'react-router-dom';
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import blog from "../images/blog-1.jpg";
+import blog from "../images/blogg.jpg";
 import Container from '../components/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { getABlog } from '../features/blogs/blogSlice';
